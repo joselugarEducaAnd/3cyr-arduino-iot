@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260717142126PAGE09">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S9 · IoT con micro:bit | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Unidad de computación física y Arduino para 3.º de ESO (Computación y Robótica). De la electrónica básica al sistema automatizado propio y una primera experiencia de Internet de las Cosas con micro:bit.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260717142126AR3SDA05","packageTitle":"Conecta el mundo físico: Arduino e Internet de las Cosas","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../idevices/trueorfalse/trueorfalse.js"></script><link rel="stylesheet" href="../idevices/trueorfalse/trueorfalse.css">
+<script src="../idevices/relate/relate.js"></script><link rel="stylesheet" href="../idevices/relate/relate.css">
+<script src="../libs/jquery-ui/jquery-ui.min.js"> </script>
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260717142126PAGE09" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Inicio</a>
+</li>
+<li> <a href="../html/s1-computacion-fisica.html" class="no-ch">S1 · Computación física</a>
+</li>
+<li> <a href="../html/s2-circuitos-en-tinkercad.html" class="no-ch">S2 · Circuitos en TinkerCAD</a>
+</li>
+<li> <a href="../html/s3-arduino-y-bloques.html" class="no-ch">S3 · Arduino y bloques</a>
+</li>
+<li> <a href="../html/s4-salidas-digitales-y-bucles.html" class="no-ch">S4 · Salidas digitales y bucles</a>
+</li>
+<li> <a href="../html/s5-pwm-y-led-rgb.html" class="no-ch">S5 · PWM y LED RGB</a>
+</li>
+<li> <a href="../html/s6-entradas-digitales.html" class="no-ch">S6 · Entradas digitales</a>
+</li>
+<li> <a href="../html/s7-entradas-analogicas-y-sensores.html" class="no-ch">S7 · Entradas analógicas y sensores</a>
+</li>
+<li> <a href="../html/s8-del-bloque-al-texto.html" class="no-ch">S8 · Del bloque al texto</a>
+</li>
+<li class="active"> <a href="../html/s9-iot-con-microbit.html" class="active no-ch">S9 · IoT con micro:bit</a>
+</li>
+<li> <a href="../html/s10-sistema-propio-y-demo.html" class="no-ch">S10 · Sistema propio y demo</a>
+</li>
+<li> <a href="../html/chuleta-y-extensiones.html" class="no-ch">Chuleta y extensiones</a>
+</li>
+</ul>
+</nav><main id="20260717142126PAGE09" class="page"> 
+<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">10</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">12</strong></span></p>
+
+<div class="package-header"><p class="package-title">Conecta el mundo físico: Arduino e Internet de las Cosas</p></div>
+<div class="page-header"><h1 class="page-title">S9 · IoT con micro:bit</h1></div>
+</header><div id="page-content-20260717142126PAGE09" class="page-content">
+<article id="20260717142126BLK009" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260717142126IDEV009" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260717142126IDEV009&quot;}">
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Las cosas hablan entre sí</p>
+  <p>El <strong>Internet de las Cosas (IoT)</strong> conecta objetos para que se comuniquen y envíen
+  datos. En esta sesión lo probarás de verdad con las placas <strong>micro:bit</strong> del centro, que
+  traen <strong>radio</strong> integrada: pueden enviarse mensajes entre ellas sin cables.</p>
+</div>
+
+<h2>1. Radio entre placas</h2>
+<p>Programaremos con <a href="https://makecode.microbit.org" target="_blank" rel="noopener">MakeCode</a>.
+Dos micro:bit en el <strong>mismo grupo de radio</strong> pueden hablar: una <strong>envía</strong> un
+dato (por ejemplo, la temperatura o un número) y otra lo <strong>recibe</strong> y lo muestra.</p>
+
+<div class="bloque bloque-resuelto">
+  <p class="bloque-titulo">Práctica guiada · Emisor y receptor</p>
+  <p><strong>Placa A (emisora):</strong> al iniciar, fija el grupo de radio (por ejemplo, el 1). En un
+  bucle, envía el valor de su sensor de temperatura cada segundo.</p>
+  <p><strong>Placa B (receptora):</strong> mismo grupo de radio. Cuando recibe un número, lo muestra en
+  la pantalla de LEDs. ¡Ya tienes dos «cosas» comunicándose!</p>
+</div>
+
+<h2>2. De la radio a la nube: la pasarela</h2>
+<p>La micro:bit sola no llega a internet. Para subir sus datos a la <strong>nube</strong> se usa una
+<strong>pasarela</strong> (en inglés, <em>gateway</em>): una placa conectada por <strong>USB</strong> al
+ordenador reenvía por el <strong>puerto serie</strong> lo que recibe por radio, y el ordenador lo guarda
+o lo sube a un servicio en internet. Este es el camino de los datos:</p>
+
+<figure>
+<svg viewBox="0 0 720 130" width="100%" role="img" aria-label="Cadena de telemetría IoT: sensores por radio a una placa concentradora, de ahí por USB al ordenador y a la nube">
+  <defs><style>.b{fill:#eef4fb;stroke:#2f6fb0;stroke-width:1.5px;rx:8}.t{font:13px system-ui;fill:#1b4d7e}.s{font:11px system-ui;fill:#5a5f6b}.a{stroke:#2f6fb0;stroke-width:2px;fill:none;marker-end:url(#h)}</style>
+  <marker id="h" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#2f6fb0"/></marker></defs>
+  <rect class="b" x="8" y="40" width="120" height="46" rx="8"/><text class="t" x="68" y="60" text-anchor="middle">micro:bit</text><text class="s" x="68" y="76" text-anchor="middle">sensores</text>
+  <text class="s" x="185" y="55" text-anchor="middle">radio</text>
+  <line class="a" x1="130" y1="63" x2="240" y2="63"/>
+  <rect class="b" x="242" y="40" width="130" height="46" rx="8"/><text class="t" x="307" y="60" text-anchor="middle">micro:bit</text><text class="s" x="307" y="76" text-anchor="middle">pasarela (hub)</text>
+  <text class="s" x="425" y="55" text-anchor="middle">USB / serie</text>
+  <line class="a" x1="374" y1="63" x2="480" y2="63"/>
+  <rect class="b" x="482" y="40" width="110" height="46" rx="8"/><text class="t" x="537" y="60" text-anchor="middle">ordenador</text><text class="s" x="537" y="76" text-anchor="middle">recoge datos</text>
+  <text class="s" x="640" y="55" text-anchor="middle">internet</text>
+  <line class="a" x1="592" y1="63" x2="672" y2="63"/>
+  <rect class="b" x="620" y="6" width="92" height="30" rx="8" style="fill:#f5f3fc;stroke:#453f93"/><text x="666" y="26" text-anchor="middle" style="font:13px system-ui;fill:#3a2f6b">Nube</text>
+  <line class="a" x1="672" y1="48" x2="672" y2="38"/>
+</svg>
+<figcaption>Los sensores envían por radio → la pasarela reenvía por USB → el ordenador lo sube a la nube.</figcaption>
+</figure>
+
+<p>En clase haremos la parte real hasta el ordenador: con MakeCode, la placa pasarela puede
+<strong>escribir por el puerto serie</strong> los datos que recibe y verlos en el
+<strong>visor de datos</strong> (Data Viewer). Ese es el primer eslabón de la telemetría a la nube.</p>
+
+<h2>3. Protocolos de comunicación IoT</h2>
+<p>Los dispositivos IoT hablan usando distintos <strong>protocolos</strong> (idiomas de comunicación).
+Cada uno tiene sus ventajas:</p>
+<table class="tabla-datos">
+  <thead><tr><th>Protocolo</th><th>Características básicas</th><th>Se usa en…</th></tr></thead>
+  <tbody>
+    <tr><td><strong>BLE</strong> (Bluetooth Low Energy)</td><td>Corto alcance, muy poco consumo, fácil con el móvil.</td><td>Pulseras, auriculares, sensores de proximidad.</td></tr>
+    <tr><td><strong>Zigbee</strong></td><td>Poco consumo; forma una <em>red en malla</em> (los aparatos se reenvían los mensajes).</td><td>Domótica: bombillas, sensores del hogar.</td></tr>
+    <tr><td><strong>Z-Wave</strong></td><td>También malla y bajo consumo; usa frecuencias distintas para no interferir con el WiFi.</td><td>Alarmas y automatización del hogar.</td></tr>
+    <tr><td><strong>WiFi</strong></td><td>Mucho alcance y datos, pero consume más.</td><td>Cámaras, altavoces inteligentes.</td></tr>
+  </tbody>
+</table>
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">Idea clave</p>
+  <p>No hay un protocolo «mejor»: se elige según el <strong>alcance</strong>, el <strong>consumo</strong>
+  y los <strong>datos</strong> que haya que enviar. La radio de la micro:bit es un ejemplo sencillo de
+  comunicación de <em>dispositivo a dispositivo</em>.</p>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Tarea S9 · Responde en el documento</p>
+  <p>Tras la práctica con las micro:bit, abre <strong>tu documento de respuestas</strong> (el mismo que empezaste en la S1, dentro de la tarea «Mis respuestas (S1 y S9)» de Classroom) y responde:</p>
+  <ol>
+    <li>Explica con tus palabras qué hace la <strong>placa pasarela</strong> en la cadena hacia la nube.</li>
+    <li>¿Qué protocolo elegirías para una <strong>pulsera de actividad</strong> y por qué: BLE o WiFi?</li>
+    <li>Di una diferencia entre <strong>Zigbee</strong> y <strong>WiFi</strong>.</li>
+  </ol>
+  <p>Ahora sí: con las dos partes completas (S1 y S9), pulsa <strong>«Entregar»</strong> en la tarea de Classroom. No hace falta adjuntar nada: el documento ya está dentro.</p>
+</div>
+</div>
+</div>
+</article><article id="block-mrypxfpu-x4o56r0f4" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Verdadero o falso</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-1784884133585-t5v9ytt0u" class="idevice_node trueorfalse" data-idevice-path="../idevices/trueorfalse/" data-idevice-type="trueorfalse" data-idevice-component-type="json" data-idevice-json-data="{&quot;id&quot;:&quot;idevice-1784884133585-t5v9ytt0u&quot;,&quot;typeGame&quot;:&quot;TrueOrFalse&quot;,&quot;eXeGameInstructions&quot;:&quot;&lt;p&gt;Responde todas las preguntas del cuestionario.&lt;/p&gt;&quot;,&quot;eXeIdeviceTextAfter&quot;:&quot;&quot;,&quot;msgs&quot;:{&quot;msgStartGame&quot;:&quot;Pulsa aquí para empezar&quot;,&quot;msgTime&quot;:&quot;Tiempo por pregunta&quot;,&quot;msgNoImage&quot;:&quot;Pregunta sin imágenes&quot;,&quot;msgScoreScorm&quot;:&quot;La puntuación no se puede guardar porque esta página no forma parte  de un paquete SCORM.&quot;,&quot;msgEndGameScore&quot;:&quot;Comience la partida antes de guardar la puntuación.&quot;,&quot;msgOnlySaveScore&quot;:&quot;¡Solo puede guardar la puntuación una vez!&quot;,&quot;msgOnlySave&quot;:&quot;Solo puede guardar una vez&quot;,&quot;msgYouScore&quot;:&quot;Su puntuación&quot;,&quot;msgAuthor&quot;:&quot;Autoría&quot;,&quot;msgOnlySaveAuto&quot;:&quot;Su puntuación se guardará después de cada pregunta. Solo puede jugar una vez.&quot;,&quot;msgSaveAuto&quot;:&quot;Su puntuación se guardará automáticamente después de cada pregunta.&quot;,&quot;msgSeveralScore&quot;:&quot;Puede guardar la puntuación tantas veces como quiera&quot;,&quot;msgYouLastScore&quot;:&quot;La última puntuación guardada es&quot;,&quot;msgActityComply&quot;:&quot;Ya ha realizado esta actividad.&quot;,&quot;msgPlaySeveralTimes&quot;:&quot;Puede realizar esta actividad cuantas veces quiera&quot;,&quot;msgUncompletedActivity&quot;:&quot;Actividad no completada&quot;,&quot;msgSuccessfulActivity&quot;:&quot;Actividad superada. Puntuación: %s&quot;,&quot;msgUnsuccessfulActivity&quot;:&quot;Actividad no superada. Puntuación: %s&quot;,&quot;msgTypeGame&quot;:&quot;Verdadero o falso&quot;,&quot;msgFeedback&quot;:&quot;Retroalimentación&quot;,&quot;msgSuggestion&quot;:&quot;Sugerencia&quot;,&quot;msgSolution&quot;:&quot;Solución&quot;,&quot;msgQuestion&quot;:&quot;Pregunta&quot;,&quot;msgTrue&quot;:&quot;Verdadero&quot;,&quot;msgFalse&quot;:&quot;Falso&quot;,&quot;msgOk&quot;:&quot;Correcto&quot;,&quot;msgKO&quot;:&quot;Incorrecto&quot;,&quot;msgShow&quot;:&quot;Mostrar&quot;,&quot;msgHide&quot;:&quot;Ocultar&quot;,&quot;msgCheck&quot;:&quot;Comprobar&quot;,&quot;msgReboot&quot;:&quot;¡Prueba otra vez!&quot;,&quot;msgScore&quot;:&quot;Puntuación&quot;,&quot;msgWeight&quot;:&quot;Peso&quot;,&quot;msgNext&quot;:&quot;Siguiente&quot;,&quot;msgPrevious&quot;:&quot;Anterior&quot;},&quot;questionsRandom&quot;:false,&quot;percentageQuestions&quot;:100,&quot;isTest&quot;:false,&quot;time&quot;:0,&quot;questionsGame&quot;:[{&quot;question&quot;:&quot;&lt;p&gt;Una micro:bit puede subir datos a la nube ella sola, sin ninguna pasarela.&lt;/p&gt;&quot;,&quot;feedback&quot;:&quot;&lt;p&gt;Necesita una pasarela que reenvíe por USB al ordenador.&lt;/p&gt;&quot;,&quot;suggestion&quot;:&quot;&quot;,&quot;solution&quot;:0},{&quot;question&quot;:&quot;&lt;p&gt;BLE es de corto alcance y muy bajo consumo.&lt;/p&gt;&quot;,&quot;feedback&quot;:&quot;&quot;,&quot;suggestion&quot;:&quot;&quot;,&quot;solution&quot;:1},{&quot;question&quot;:&quot;&lt;p&gt;Zigbee y Z-Wave forman redes en malla.&lt;/p&gt;&quot;,&quot;feedback&quot;:&quot;&quot;,&quot;suggestion&quot;:&quot;&quot;,&quot;solution&quot;:1}],&quot;isScorm&quot;:0,&quot;textButtonScorm&quot;:&quot;Guardar la puntuación&quot;,&quot;repeatActivity&quot;:true,&quot;weighted&quot;:100,&quot;evaluation&quot;:false,&quot;evaluationID&quot;:&quot;&quot;,&quot;showSlider&quot;:false,&quot;ideviceId&quot;:&quot;idevice-1784884133585-t5v9ytt0u&quot;}" data-idevice-template="trueorfalse.html">
+<div class="exe-trueorfalse-container">
+  
+    <div class="game-evaluation-ids js-hidden" data-id="idevice-1784884133585-t5v9ytt0u" data-evaluationb="false" data-evaluationid=""></div>
+        <div class="TOFP-instructions"><p>Responde todas las preguntas del cuestionario.</p></div>
+        <div class="TOFP-MainContainer" data-instance="idevice-1784884133585-t5v9ytt0u" id="tofPMainContainer-idevice-1784884133585-t5v9ytt0u">
+            <div class="TOFP-GameContainer" id="tofPGameContainer-idevice-1784884133585-t5v9ytt0u">
+                <div class="TOFP-GameScoreBoard TOFP-EHidden">
+                    <div class="TOFP-TimeNumber">
+                        <strong><span class="sr-av">Tiempo por pregunta:</span></strong>
+                        <p id="tofPPTime-idevice-1784884133585-t5v9ytt0u" class="TOFP-PTime">00:00:</p>
+                    </div>
+                </div>
+                <div class="TOFP-MessgeDiv" id="tofPMessageDiv-idevice-1784884133585-t5v9ytt0u">
+                    <div class="TOFP-Message" id="tofPMessage-idevice-1784884133585-t5v9ytt0u"></div>
+                </div>
+                <div class="TOFP-StartGameDiv TOFP-EHidden" id="tofPStartGameDiv-idevice-1784884133585-t5v9ytt0u">
+                    <button  id="tofPStartGame-idevice-1784884133585-t5v9ytt0u" type="button" class="btn btn-primary">Pulsa aquí para empezar</button>
+                </div>
+                <div class="TOFP-Multimedia " id="tofPMultimedia-idevice-1784884133585-t5v9ytt0u">
+                </div>
+                <div class="TOFP-CheckTestDiv TOFP-EHidden" id="tofPCheckTestDiv-idevice-1784884133585-t5v9ytt0u">
+                    <button id="tofPCheckTest-idevice-1784884133585-t5v9ytt0u" type="button" class="btn btn-primary">Comprobar</button>
+                    <button id="tofRebootTest-idevice-1784884133585-t5v9ytt0u" type="button" class="btn btn-primary TOFP-EHidden">¡Prueba otra vez!</button>
+                </div>
+        </div> 
+        <div class="Games-BottonContainer">
+            <div class="Games-GetScore">
+                <input id="tofPSendScore-idevice-1784884133585-t5v9ytt0u" type="button" value="Guardar la puntuación" class="feedbackbutton Games-SendScore" style="display:none"/> <span class="Games-RepeatActivity"></span>
+            </div>
+        </div>
+        <div class="TOFP-After"></div>
+        <div class="questionsMedia" style="display:none"></div>
+</div>
+
+</div>
+</div>
+</article><article id="block-mrypysgv-s6p5k3crs" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Relaciona</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-1784884196766-q91v2n3cb" class="idevice_node relate" data-idevice-path="../idevices/relate/" data-idevice-type="relate">
+<div class="relaciona-IDevice"><div class="relaciona-instructions gameQP-instructions"><p>Empareja cada protocolo con su uso típico:</p></div><div class="relaciona-DataGame js-hidden">{"typeGame":"Relaciona","author":"","randomCards":true,"instructions":"<p>Empareja cada protocolo con su uso típico:</p>","showMinimize":false,"itinerary":{"showClue":false,"clueGame":"","percentageClue":40,"showCodeAccess":false,"codeAccess":"","messageCodeAccess":""},"cardsGame":[{"url":"","x":0,"y":0,"author":"","alt":"","audio":"","color":"#000000","backcolor":"#ffffff","eText":"BLE","urlBk":"","xBk":0,"yBk":0,"authorBk":"","altBk":"","audioBk":"","colorBk":"#000000","backcolorBk":"#ffffff","eTextBk":"Pulsera%20de%20actividad%20%2F%20auriculares"},{"url":"","x":0,"y":0,"author":"","alt":"","audio":"","color":"#000000","backcolor":"#ffffff","eText":"Zigbee","urlBk":"","xBk":0,"yBk":0,"authorBk":"","altBk":"","audioBk":"","colorBk":"#000000","backcolorBk":"#ffffff","eTextBk":"Dom%C3%B3tica%20del%20hogar%20(bombillas%2C%20sensores)"},{"url":"","x":0,"y":0,"author":"","alt":"","audio":"","color":"#000000","backcolor":"#ffffff","eText":"WiFi","urlBk":"","xBk":0,"yBk":0,"authorBk":"","altBk":"","audioBk":"","colorBk":"#000000","backcolorBk":"#ffffff","eTextBk":"C%C3%A1mara%20o%20altavoz%20inteligente"},{"url":"","x":0,"y":0,"author":"","alt":"","audio":"","color":"#000000","backcolor":"#ffffff","eText":"Radio%20micro%3Abit","urlBk":"","xBk":0,"yBk":0,"authorBk":"","altBk":"","audioBk":"","colorBk":"#000000","backcolorBk":"#ffffff","eTextBk":"Comunicaci%C3%B3n%20sencilla%20entre%20dos%20placas"}],"isScorm":0,"textButtonScorm":"Guardar la puntuación","repeatActivity":true,"weighted":100,"textAfter":"","version":2,"percentajeCards":100,"type":0,"showSolution":true,"timeShowSolution":3,"time":3,"evaluation":false,"evaluationID":"9429de07-0b1e-4689-a66c-6d66ba5273b6","id":"idevice-1784884196766-q91v2n3cb","msgs":{"msgSubmit":"Enviar","msgClue":"¡Genial! La pista es:","msgCodeAccess":"Código de acceso","msgPlayStart":"Pulsa aquí para jugar","msgScore":"Puntuación","msgErrors":"Errores","msgHits":"Aciertos","msgMinimize":"Minimizar","msgMaximize":"Maximizar","msgFullScreen":"Pantalla Completa","msgExitFullScreen":"Salir del modo pantalla completa","msgNoImage":"Pregunta sin imágenes","msgEndGameScore":"Comience la partida antes de guardar la puntuación.","msgScoreScorm":"La puntuación no se puede guardar porque esta página no forma parte  de un paquete SCORM.","msgOnlySaveScore":"¡Solo puede guardar la puntuación una vez!","msgOnlySave":"Solo puede guardar una vez","msgInformation":"Información","msgYouScore":"Su puntuación","msgAuthor":"Autoría","msgOnlySaveAuto":"Su puntuación se guardará después de cada pregunta. Solo puede jugar una vez.","msgSaveAuto":"Su puntuación se guardará automáticamente después de cada pregunta.","msgSeveralScore":"Puede guardar la puntuación tantas veces como quiera","msgYouLastScore":"La última puntuación guardada es","msgActityComply":"Ya ha realizado esta actividad.","msgPlaySeveralTimes":"Puede realizar esta actividad cuantas veces quiera","msgClose":"Cerrar","msgAudio":"Audio","msgNumQuestions":"Número de tarjetas","msgTryAgain":"Necesitas al menos %s% de respuestas correctas para obtener la información. Inténtalo de nuevo.","msgEndGameM":"Has completado el juego. Tu puntuación es %s.","msgUncompletedActivity":"Actividad no completada","msgSuccessfulActivity":"Actividad superada. Puntuación: %s","msgUnsuccessfulActivity":"Actividad no superada. Puntuación: %s","msgTypeGame":"Relaciona","msgCheck":"Comprobar","msgRestart":"Reiniciar"}}</div><div class="game-evaluation-ids js-hidden" data-id="idevice-1784884196766-q91v2n3cb" data-evaluationb="false" data-evaluationid="9429de07-0b1e-4689-a66c-6d66ba5273b6"></div><div class="relaciona-bns js-hidden">Su navegador no es compatible con esta herramienta.</div></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/s8-del-bloque-al-texto.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/s10-sistema-propio-y-demo.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class=""> <p> <span class="license-label">Licencia: </span><span class="license">creative commons: attribution - share alike</span></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

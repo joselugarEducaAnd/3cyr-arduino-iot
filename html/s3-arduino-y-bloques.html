@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260717142126PAGE03">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S3 · Arduino y bloques | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Unidad de computación física y Arduino para 3.º de ESO (Computación y Robótica). De la electrónica básica al sistema automatizado propio y una primera experiencia de Internet de las Cosas con micro:bit.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260717142126AR3SDA05","packageTitle":"Conecta el mundo físico: Arduino e Internet de las Cosas","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260717142126PAGE03" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Inicio</a>
+</li>
+<li> <a href="../html/s1-computacion-fisica.html" class="no-ch">S1 · Computación física</a>
+</li>
+<li> <a href="../html/s2-circuitos-en-tinkercad.html" class="no-ch">S2 · Circuitos en TinkerCAD</a>
+</li>
+<li class="active"> <a href="../html/s3-arduino-y-bloques.html" class="active no-ch">S3 · Arduino y bloques</a>
+</li>
+<li> <a href="../html/s4-salidas-digitales-y-bucles.html" class="no-ch">S4 · Salidas digitales y bucles</a>
+</li>
+<li> <a href="../html/s5-pwm-y-led-rgb.html" class="no-ch">S5 · PWM y LED RGB</a>
+</li>
+<li> <a href="../html/s6-entradas-digitales.html" class="no-ch">S6 · Entradas digitales</a>
+</li>
+<li> <a href="../html/s7-entradas-analogicas-y-sensores.html" class="no-ch">S7 · Entradas analógicas y sensores</a>
+</li>
+<li> <a href="../html/s8-del-bloque-al-texto.html" class="no-ch">S8 · Del bloque al texto</a>
+</li>
+<li> <a href="../html/s9-iot-con-microbit.html" class="no-ch">S9 · IoT con micro:bit</a>
+</li>
+<li> <a href="../html/s10-sistema-propio-y-demo.html" class="no-ch">S10 · Sistema propio y demo</a>
+</li>
+<li> <a href="../html/chuleta-y-extensiones.html" class="no-ch">Chuleta y extensiones</a>
+</li>
+</ul>
+</nav><main id="20260717142126PAGE03" class="page"> 
+<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">4</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">12</strong></span></p>
+
+<div class="package-header"><p class="package-title">Conecta el mundo físico: Arduino e Internet de las Cosas</p></div>
+<div class="page-header"><h1 class="page-title">S3 · Arduino y bloques</h1></div>
+</header><div id="page-content-20260717142126PAGE03" class="page-content">
+<article id="20260717142126BLK003" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260717142126IDEV003" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260717142126IDEV003&quot;}">
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Llega el cerebro: Arduino</p>
+  <p><strong>Arduino</strong> es una plataforma libre formada por una placa con un microcontrolador
+  (el hardware) y un entorno para programarla (el software). Con ella podemos leer sensores y activar
+  actuadores según un programa que escribamos. Podemos compararla con una persona:</p>
+  <figure><img src="../content/resources/analogia_arduino_humano.png" alt="Analogía entre el cuerpo humano y Arduino: sentidos-sensores, cerebro-microcontrolador, músculos-actuadores"><figcaption>Sensores = sentidos · microcontrolador = cerebro · actuadores = músculos.</figcaption></figure>
+  <p>Usaremos la placa más popular, la <strong>Arduino UNO</strong>. Su componente principal es el
+  microcontrolador <strong>ATmega328P</strong>, con 32 KB de memoria flash (para el programa) y
+  2 KB de memoria SRAM (para los datos). Parece poco, ¡pero sobra para nuestros proyectos!</p>
+  <figure><img src="../content/resources/Arduino_UNO_MicroControlador.png" alt="Placa Arduino UNO con el microcontrolador ATmega328P señalado"></figure>
+  <p>La placa tiene <strong>pines</strong> (patillas) para conectar sensores y actuadores: unos son
+  <strong>digitales</strong> (valen 0 o 1; los marcados con <code>~</code> también dan salidas PWM) y otros son entradas
+  <strong>analógicas</strong> (leen un rango de valores, de A0 a A5).</p>
+  <figure><img src="../content/resources/arduino_uno_digitales.png" alt="Pines digitales de la placa Arduino UNO señalados"></figure>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">La estrella del curso: el shield del centro</p>
+  <p>Cablear cada circuito en clase lleva tiempo y da errores. Por eso montaremos sobre la Arduino un
+  <strong>shield</strong>: una placa que encaja encima y que trae <strong>ya conectados</strong> un montón de
+  componentes. Es como una protoboard con el circuito hecho por dentro de fábrica.</p>
+  <figure><img src="../content/resources/shield_clon.jpg" alt="Shield multifunción HY-M302 montado, con sus componentes integrados"></figure>
+  <p>Este es su <strong>mapa</strong>. No hace falta memorizarlo (está también en la chuleta), pero fíjate:
+  cada componente tiene su pin FIJO, y ese número es el que pondrás en tus bloques toda la unidad.</p>
+  <table class="tabla-datos">
+    <tr><th>Componente del shield</th><th>Tipo</th><th>Pin</th></tr>
+    <tr><td>LED azul / LED rojo</td><td>Salida digital</td><td>13 / 12</td></tr>
+    <tr><td>LED RGB</td><td>Salida PWM</td><td>rojo 9 · verde 11 · azul 10</td></tr>
+    <tr><td>Zumbador</td><td>Salida</td><td>5</td></tr>
+    <tr><td>Pulsadores SW1 / SW2</td><td>Entrada digital</td><td>2 / 3</td></tr>
+    <tr><td>Potenciómetro (rueda)</td><td>Entrada analógica</td><td>A0</td></tr>
+    <tr><td>Sensor de luz (LDR)</td><td>Entrada analógica</td><td>A1</td></tr>
+    <tr><td>Sensor de temperatura (LM35)</td><td>Entrada analógica</td><td>A2</td></tr>
+    <tr><td>Sensor de temperatura y humedad (DHT11)</td><td>Entrada digital</td><td>4</td></tr>
+    <tr><td>Receptor de infrarrojos (mando)</td><td>Entrada digital</td><td>6</td></tr>
+    <tr><td>Puertos libres para ampliar</td><td>—</td><td>7, 8 y A3</td></tr>
+  </table>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Programar con bloques: STEAMakersBlocks</p>
+  <p>Programaremos con <a href="https://steamakersblocks.com/" target="_blank" rel="noopener">STEAMakersBlocks</a>,
+  un entorno de bloques (como Scratch) para Arduino. Encajas bloques, no escribes código,
+  así que no puedes cometer errores de escritura. Cada programa tiene dos partes fijas:</p>
+  <figure><img src="../content/resources/inicializar_y_bucle.png" alt="Bloques Inicializar y Bucle en STEAMakersBlocks"></figure>
+  <table class="tabla-datos">
+    <tr><th>Bloque</th><th>Cuándo se ejecuta</th></tr>
+    <tr><td>Inicializar</td><td>Una sola vez, al arrancar la placa (preparar pines y variables).</td></tr>
+    <tr><td>Bucle</td><td>Se repite sin parar, una y otra vez, mientras la placa esté encendida.</td></tr>
+  </table>
+</div>
+
+<div class="bloque bloque-resuelto">
+  <p class="bloque-titulo">Práctica guiada · Tu primera luz real, paso a paso</p>
+  <ol>
+    <li>Entra en STEAMakersBlocks con el usuario que te indica tu profesor y crea un <strong>proyecto nuevo</strong> de tipo <strong>UNO</strong> llamado exactamente <strong>S3 parpadeo</strong>.</li>
+    <li>En el bloque <strong>Bucle</strong>, encaja esta secuencia: <em>escribir digital pin 13 ON →
+    esperar 1000 ms → escribir digital pin 13 OFF → esperar 1000 ms</em>. Debe quedarte así:
+    <figure><img src="../content/resources/ab1.3.png" alt="Bloques del parpadeo: encender pin 13, esperar, apagar, esperar, dentro del Bucle"><figcaption>El pin 13 es el LED azul del shield.</figcaption></figure></li>
+    <li>Pulsa la flechita junto al botón «Bloques» y elige <strong>«Ver código»</strong>: aparece el programa
+    traducido al lenguaje de Arduino. Cópialo con el botón <strong>Copiar</strong>.
+    <figure><img src="../content/resources/ver_codigo_AB.png" alt="Menú Ver código en STEAMakersBlocks"></figure></li>
+    <li>Abre <strong>Arduino IDE</strong> en el ordenador del aula, borra el contenido del sketch de ejemplo
+    y <strong>pega</strong> tu código.
+    <figure><img src="../content/resources/ArdIDE-IES.png" alt="Ventana principal de Arduino IDE"></figure></li>
+    <li>Conecta la placa (con el shield puesto) al USB y comprueba abajo a la derecha que aparece
+    <strong>«Arduino Uno»</strong> con su puerto. Si no aparece, revisa el cable.
+    <figure><img src="../content/resources/ArdIDE-IES-Puerto.png" alt="Arduino IDE mostrando la placa Arduino Uno conectada a su puerto"></figure></li>
+    <li>Pulsa el botón de <strong>subir</strong> (la flecha →). Cuando termine…
+    <strong>el LED azul del shield parpadea</strong>. ¡Tu primer programa controlando el mundo real!
+    <figure><img src="../content/resources/botones_IDE.png" alt="Botones de la barra de herramientas de Arduino IDE: verificar, subir, guardar"></figure></li>
+  </ol>
+</div>
+
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">El flujo de trabajo de toda la unidad</p>
+  <p><strong>1)</strong> Bloques en STEAMakersBlocks → <strong>2)</strong> «Ver código» y copiar →
+  <strong>3)</strong> pegar en Arduino IDE y subir → <strong>4)</strong> ver el resultado en el shield.
+  Cuando quieras <strong>montar</strong> el circuito además de programarlo, usarás TinkerCAD (S4 en adelante).</p>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Tarea S3 · Hazlo tuyo</p>
+  <p>Cambia el programa para que el LED azul esté <strong>encendido 250 ms</strong> y
+  <strong>apagado 750 ms</strong>, y súbelo a la placa. Añade estos dos archivos a la tarea <strong>«Tareas de Arduino (S2–S7)»</strong> de Classroom — solo añadirlos, <strong>sin pulsar «Entregar»</strong>: esa tarea se entrega al acabar la S7 con todo dentro:</p>
+  <ul>
+    <li>Una <strong>captura</strong> de tus bloques, con el nombre <strong>s3_bloques.png</strong>.</li>
+    <li>Un <strong>vídeo corto</strong> (5-10 s) del shield funcionando. Dentro del vídeo debe verse un
+    papelito escrito a mano con <strong>tus iniciales y tu curso</strong> (así sabemos que el montaje es tuyo). Guárdalo como <strong>s3_parpadeo.mp4</strong>.</li>
+  </ul>
+</div>
+
+<div class="bloque bloque-nota">
+  <p class="bloque-titulo">Recuerda</p>
+  <p>El <strong>nombre del archivo</strong> que entregues no debe llevar tu nombre ni tus apellidos:
+  usa exactamente los nombres que indica cada tarea (aquí, <code>s3_bloques.png</code> y <code>s3_parpadeo.mp4</code>). (El papelito del vídeo lleva solo iniciales.)</p>
+</div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/s2-circuitos-en-tinkercad.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/s4-salidas-digitales-y-bucles.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class=""> <p> <span class="license-label">Licencia: </span><span class="license">creative commons: attribution - share alike</span></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

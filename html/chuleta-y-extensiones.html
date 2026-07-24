@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260717142126PAGE11">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chuleta y extensiones | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Unidad de computación física y Arduino para 3.º de ESO (Computación y Robótica). De la electrónica básica al sistema automatizado propio y una primera experiencia de Internet de las Cosas con micro:bit.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260717142126AR3SDA05","packageTitle":"Conecta el mundo físico: Arduino e Internet de las Cosas","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260717142126PAGE11" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Inicio</a>
+</li>
+<li> <a href="../html/s1-computacion-fisica.html" class="no-ch">S1 · Computación física</a>
+</li>
+<li> <a href="../html/s2-circuitos-en-tinkercad.html" class="no-ch">S2 · Circuitos en TinkerCAD</a>
+</li>
+<li> <a href="../html/s3-arduino-y-bloques.html" class="no-ch">S3 · Arduino y bloques</a>
+</li>
+<li> <a href="../html/s4-salidas-digitales-y-bucles.html" class="no-ch">S4 · Salidas digitales y bucles</a>
+</li>
+<li> <a href="../html/s5-pwm-y-led-rgb.html" class="no-ch">S5 · PWM y LED RGB</a>
+</li>
+<li> <a href="../html/s6-entradas-digitales.html" class="no-ch">S6 · Entradas digitales</a>
+</li>
+<li> <a href="../html/s7-entradas-analogicas-y-sensores.html" class="no-ch">S7 · Entradas analógicas y sensores</a>
+</li>
+<li> <a href="../html/s8-del-bloque-al-texto.html" class="no-ch">S8 · Del bloque al texto</a>
+</li>
+<li> <a href="../html/s9-iot-con-microbit.html" class="no-ch">S9 · IoT con micro:bit</a>
+</li>
+<li> <a href="../html/s10-sistema-propio-y-demo.html" class="no-ch">S10 · Sistema propio y demo</a>
+</li>
+<li class="active"> <a href="../html/chuleta-y-extensiones.html" class="active no-ch">Chuleta y extensiones</a>
+</li>
+</ul>
+</nav><main id="20260717142126PAGE11" class="page"> 
+<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">12</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">12</strong></span></p>
+
+<div class="package-header"><p class="package-title">Conecta el mundo físico: Arduino e Internet de las Cosas</p></div>
+<div class="page-header"><h1 class="page-title">Chuleta y extensiones</h1></div>
+</header><div id="page-content-20260717142126PAGE11" class="page-content">
+<article id="20260717142126BLK011" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260717142126IDEV011" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260717142126IDEV011&quot;}">
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Tu ayuda rápida</p>
+  <p>Aquí tienes, en una sola página, el <strong>mapa del shield</strong>, el resumen de bloques y su
+  equivalente en texto, y algunas extensiones opcionales por si acabas antes y quieres ir más allá.</p>
+</div>
+
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">1. Mapa del shield (pines fijos)</p>
+  <table class="tabla-datos">
+    <tr><th>Componente</th><th>Tipo</th><th>Pin</th></tr>
+    <tr><td>LED azul</td><td>Salida digital</td><td>13</td></tr>
+    <tr><td>LED rojo</td><td>Salida digital</td><td>12</td></tr>
+    <tr><td>LED RGB</td><td>Salida PWM</td><td>rojo 9 · verde 11 · azul 10</td></tr>
+    <tr><td>Zumbador</td><td>Salida</td><td>5</td></tr>
+    <tr><td>Pulsador SW1</td><td>Entrada digital</td><td>2</td></tr>
+    <tr><td>Pulsador SW2</td><td>Entrada digital</td><td>3</td></tr>
+    <tr><td>Potenciómetro</td><td>Entrada analógica</td><td>A0</td></tr>
+    <tr><td>Sensor de luz (LDR)</td><td>Entrada analógica</td><td>A1</td></tr>
+    <tr><td>Sensor de temperatura (LM35)</td><td>Entrada analógica</td><td>A2</td></tr>
+    <tr><td>Sensor temperatura + humedad (DHT11)</td><td>Entrada digital</td><td>4</td></tr>
+    <tr><td>Receptor de infrarrojos</td><td>Entrada digital</td><td>6</td></tr>
+    <tr><td>Puertos libres</td><td>—</td><td>7, 8, A3</td></tr>
+  </table>
+  <p>Recetas de color del RGB (valores R·G·B): amarillo/ámbar 255·120·0 (ajusta el verde) ·
+  morado 128·0·255 · cian 0·255·255 · blanco 255·255·255.</p>
+</div>
+
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">2. Del bloque al texto (equivalencias)</p>
+  <table class="tabla-datos">
+    <tr><th>Quiero…</th><th>En texto (sketch)</th></tr>
+    <tr><td>Preparar el pin 13 como salida</td><td><code>pinMode(13, OUTPUT);</code></td></tr>
+    <tr><td>Preparar el pin 2 como entrada</td><td><code>pinMode(2, INPUT);</code></td></tr>
+    <tr><td>Encender el pin 13</td><td><code>digitalWrite(13, HIGH);</code></td></tr>
+    <tr><td>Apagar el pin 13</td><td><code>digitalWrite(13, LOW);</code></td></tr>
+    <tr><td>Esperar 1 segundo</td><td><code>delay(1000);</code></td></tr>
+    <tr><td>Brillo medio (PWM) en el pin 9</td><td><code>analogWrite(9, 128);</code></td></tr>
+    <tr><td>Leer un pulsador (pin 2)</td><td><code>digitalRead(2)</code></td></tr>
+    <tr><td>Leer un sensor analógico (A0)</td><td><code>analogRead(A0)</code></td></tr>
+    <tr><td>Decidir</td><td><code>if ( … ) { … } else { … }</code></td></tr>
+  </table>
+</div>
+
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">3. Recordatorio de valores</p>
+  <table class="tabla-datos">
+    <tr><th>Tipo de señal</th><th>Rango</th></tr>
+    <tr><td>Digital (salida/entrada)</td><td>HIGH / LOW (encendido / apagado)</td></tr>
+    <tr><td>Analógica de salida (PWM)</td><td>0 a 255</td></tr>
+    <tr><td>Analógica de entrada</td><td>0 a 1023</td></tr>
+  </table>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">4. Extensión: música con el zumbador (pin 5)</p>
+  <p>El zumbador del shield produce notas con el bloque <strong>Zumbador</strong> (categoría
+  «Actuadores»): le indicas la duración en ms y el tono en Hz. El bloque <strong>Tono</strong> te da la
+  frecuencia de cada nota sin aprenderte números. Y el bloque <strong>Reproducir RTTTL</strong> toca
+  melodías completas (Star Wars, Indiana Jones…). Ideas: la escala musical, un SOS en morse
+  (S = 3 pitidos cortos, O = 3 largos, con funciones), la sintonía de tu sistema propio.</p>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">5. Extensión: el servomotor</p>
+  <p>Un <strong>servomotor</strong> gira hasta una posición exacta (de 0° a 180°): perfecto para una
+  barrera, una compuerta o un brazo. Se controla con el bloque <strong>Servo</strong> (categoría «Motor»)
+  indicando los grados. Se conecta en un puerto libre del shield: pregunta a tu profesor cómo.</p>
+  <figure><img src="../content/resources/servo-tc.png" alt="Servomotor en TinkerCAD"></figure>
+</div>
+
+<div class="bloque bloque-nota">
+  <p class="bloque-titulo">Antes de entregar, revisa</p>
+  <ul>
+    <li>¿Archivos y proyectos con los nombres EXACTOS que indica cada tarea (y sin tu nombre personal)?</li>
+    <li>¿Lo has probado y funciona (en el shield o simulado)?</li>
+    <li>¿El vídeo lleva el papelito con tus iniciales y curso?</li>
+    <li>¿Lo entregas en Google Classroom y en plazo?</li>
+  </ul>
+</div>
+
+<div class="bloque bloque-nota">
+  <p class="bloque-titulo">Fuentes de este material</p>
+  <p>Adaptado de los REA «Computación y Robótica» de la Consejería (Junta de Andalucía) y del curso
+  <a href="https://pedroruizf.github.io/arduino_shield_arduinoblocks/" target="_blank" rel="noopener">«Sistemas
+  de control automáticos con Arduino + Shield HY-M302»</a> de Pedro Ruiz Fernández, ambos con licencia
+  Creative Commons BY-SA.</p>
+</div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/s10-sistema-propio-y-demo.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<span class="nav-button nav-button-right" aria-hidden="true"><span>Siguiente</span></span>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class=""> <p> <span class="license-label">Licencia: </span><span class="license">creative commons: attribution - share alike</span></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

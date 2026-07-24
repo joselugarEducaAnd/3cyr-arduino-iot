@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260717142126PAGE07">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S7 · Entradas analógicas y sensores | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Unidad de computación física y Arduino para 3.º de ESO (Computación y Robótica). De la electrónica básica al sistema automatizado propio y una primera experiencia de Internet de las Cosas con micro:bit.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260717142126AR3SDA05","packageTitle":"Conecta el mundo físico: Arduino e Internet de las Cosas","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260717142126PAGE07" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Inicio</a>
+</li>
+<li> <a href="../html/s1-computacion-fisica.html" class="no-ch">S1 · Computación física</a>
+</li>
+<li> <a href="../html/s2-circuitos-en-tinkercad.html" class="no-ch">S2 · Circuitos en TinkerCAD</a>
+</li>
+<li> <a href="../html/s3-arduino-y-bloques.html" class="no-ch">S3 · Arduino y bloques</a>
+</li>
+<li> <a href="../html/s4-salidas-digitales-y-bucles.html" class="no-ch">S4 · Salidas digitales y bucles</a>
+</li>
+<li> <a href="../html/s5-pwm-y-led-rgb.html" class="no-ch">S5 · PWM y LED RGB</a>
+</li>
+<li> <a href="../html/s6-entradas-digitales.html" class="no-ch">S6 · Entradas digitales</a>
+</li>
+<li class="active"> <a href="../html/s7-entradas-analogicas-y-sensores.html" class="active no-ch">S7 · Entradas analógicas y sensores</a>
+</li>
+<li> <a href="../html/s8-del-bloque-al-texto.html" class="no-ch">S8 · Del bloque al texto</a>
+</li>
+<li> <a href="../html/s9-iot-con-microbit.html" class="no-ch">S9 · IoT con micro:bit</a>
+</li>
+<li> <a href="../html/s10-sistema-propio-y-demo.html" class="no-ch">S10 · Sistema propio y demo</a>
+</li>
+<li> <a href="../html/chuleta-y-extensiones.html" class="no-ch">Chuleta y extensiones</a>
+</li>
+</ul>
+</nav><main id="20260717142126PAGE07" class="page"> 
+<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">8</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">12</strong></span></p>
+
+<div class="package-header"><p class="package-title">Conecta el mundo físico: Arduino e Internet de las Cosas</p></div>
+<div class="page-header"><h1 class="page-title">S7 · Entradas analógicas y sensores</h1></div>
+</header><div id="page-content-20260717142126PAGE07" class="page-content">
+<article id="20260717142126BLK007" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260717142126IDEV007" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260717142126IDEV007&quot;}">
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">No todo es blanco o negro</p>
+  <p>Un pulsador solo da dos valores. Pero muchas magnitudes del mundo real (la luz, la temperatura, el
+  giro de una rueda) tienen infinitos valores intermedios. Para leerlas usamos una
+  <strong>entrada analógica</strong>, que en Arduino devuelve un número de <strong>0 a 1023</strong>.
+  El shield trae tres sensores analógicos listos para usar:</p>
+  <table class="tabla-datos">
+    <tr><th>Sensor del shield</th><th>Pin</th><th>Qué mide</th></tr>
+    <tr><td>Potenciómetro (rueda giratoria)</td><td>A0</td><td>Cuánto has girado la rueda</td></tr>
+    <tr><td>LDR (fotorresistencia)</td><td>A1</td><td>Cuánta luz hay</td></tr>
+    <tr><td>LM35</td><td>A2</td><td>Temperatura</td></tr>
+  </table>
+  <figure><img src="../content/resources/potenciometros.png" alt="Varios tipos de potenciómetros reales"></figure>
+</div>
+
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">Convertir con mapear (map)</p>
+  <p>La entrada analógica da 0–1023, pero el brillo PWM va de 0–255. El bloque <strong>mapear</strong>
+  (categoría «Matemáticas») convierte un rango en otro. Así, girando el potenciómetro controlas el brillo
+  de un LED de 0 a máximo.</p>
+</div>
+
+<div class="bloque bloque-resuelto">
+  <p class="bloque-titulo">Práctica guiada · Lámpara regulable (y un espía: la consola serie)</p>
+  <ol>
+    <li>En el <strong>Bucle</strong>: lee la entrada <strong>A0</strong> (potenciómetro), pásala por
+    <strong>mapear</strong> (de 0–1023 a 0–255) y escribe el resultado como PWM en el <strong>pin 9</strong>
+    (canal rojo del RGB). El patrón de bloques es este:
+    <figure><img src="../content/resources/aba1.2.png" alt="Bloques: leer entrada analógica, mapear de 0-1023 a 0-255 y escribir el valor como PWM"><figcaption>En el shield: entrada A0, salida pin 9.</figcaption></figure></li>
+    <li>Añade un bloque de <strong>Comunicaciones → Puerto serie → imprimir</strong> con el valor leído, y una
+    espera pequeña (100 ms). Sube el programa.</li>
+    <li>Gira la rueda del shield: el rojo del RGB sube y baja de brillo. Y si abres el
+    <strong>monitor serie</strong> de Arduino IDE (icono de la lupa), verás desfilar el número real que está
+    leyendo la placa (0–1023). Ese «espía» te va a servir en la tarea.</li>
+  </ol>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">La luz como sensor: la LDR</p>
+  <p>Una <strong>LDR</strong> (fotorresistencia) cambia su resistencia según la luz que recibe. Con ella
+  la placa «ve» si hay mucha o poca luz: es el sensor de una <strong>farola automática</strong> que se
+  enciende de noche. En el shield está en <strong>A1</strong>; tápala con la mano y la lectura cambia.</p>
+  <figure><img src="../content/resources/ldr_tc.png" alt="Fotorresistencia LDR en TinkerCAD"></figure>
+</div>
+
+<div class="bloque bloque-resuelto">
+  <p class="bloque-titulo">Abre el capó (TinkerCAD) · El potenciómetro por dentro</p>
+  <p>Monta en TinkerCAD, en un circuito llamado <strong>S7 gemelo</strong>, un potenciómetro (terminal central a <strong>A0</strong>, extremos a 5V y GND) y un
+  LED con resistencia en un pin PWM. En la imagen el LED está en el pin 3; si lo dejas así, cambia el 9 por
+  el 3 en tu bloque PWM — es lo único que cambia:</p>
+  <figure><img src="../content/resources/aba1.0.png" alt="Montaje de potenciómetro y LED con resistencia en protoboard conectados a Arduino"></figure>
+  <p>Simula y gira el potenciómetro virtual. Curiosidad: la LDR del shield lleva por dentro un montaje
+  llamado <strong>divisor de tensión</strong> (la LDR + una resistencia fija en serie) para convertir la luz
+  en un voltaje que A1 pueda leer.</p>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Los sensores en el mundo IoT</p>
+  <p>En el <strong>Internet de las Cosas</strong>, miles de sensores como los de tu shield recogen datos del
+  entorno y los envían por la red para tomar decisiones. Algunos ejemplos reales:</p>
+  <table class="tabla-datos">
+    <tr><th>Sensor</th><th>Aplicación IoT real</th></tr>
+    <tr><td>Temperatura y humedad</td><td>Invernaderos y neveras inteligentes que avisan al móvil.</td></tr>
+    <tr><td>Movimiento</td><td>Alarmas y luces que se encienden al detectar presencia.</td></tr>
+    <tr><td>Calidad del aire</td><td>Estaciones que miden la contaminación de una ciudad.</td></tr>
+    <tr><td>Humedad del suelo</td><td>Riego automático que solo riega cuando hace falta.</td></tr>
+    <tr><td>Nivel / distancia</td><td>Contenedores de basura que avisan cuando están llenos.</td></tr>
+  </table>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Tarea D · Farola automática</p>
+  <p>Programa una <strong>farola crepuscular</strong> con el shield: cuando haya poca luz sobre la LDR
+  (A1), se enciende el LED azul; con luz suficiente, se apaga. Pasos:</p>
+  <ul>
+    <li>Usa el monitor serie («el espía») para ver qué valores da A1 con luz normal y tapándola con la
+    mano, y <strong>elige tu umbral</strong> entre medias.</li>
+    <li>Con un bloque <strong>si… si no…</strong>, compara la lectura de A1 con tu umbral y actúa sobre el LED.</li>
+  </ul>
+  <p>Hazlo en un proyecto llamado <strong>D farola</strong>. Añade a la tarea <strong>«Tareas de Arduino (S2–S7)»</strong> la captura de bloques como <strong>d_bloques.png</strong> y el vídeo donde se vea la farola encenderse al tapar la LDR (papelito con iniciales y curso) como <strong>d_farola.mp4</strong>. Y como esta es la última de la serie, <strong>ahora sí: pulsa «Entregar»</strong> con todos los archivos de S2–S7 dentro.</p>
+</div>
+
+<div class="bloque bloque-dua">
+  <p class="bloque-titulo">Extensión (opcional) · Termómetro de colores</p>
+  <p>El <strong>LM35 (A2)</strong> da un valor que crece con la temperatura. Haz que el RGB se ponga
+  <strong>azul</strong> con frío, <strong>verde</strong> templado y <strong>rojo</strong> con calor
+  (mira los valores con el monitor serie y elige dos umbrales; calienta el sensor apretándolo con los
+  dedos). Acabas de inventar el indicador de una nevera inteligente.</p>
+</div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/s6-entradas-digitales.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/s8-del-bloque-al-texto.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class=""> <p> <span class="license-label">Licencia: </span><span class="license">creative commons: attribution - share alike</span></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

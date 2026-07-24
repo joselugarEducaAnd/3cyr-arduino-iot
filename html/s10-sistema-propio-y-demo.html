@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260717142126PAGE10">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S10 · Sistema propio y demo | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Unidad de computación física y Arduino para 3.º de ESO (Computación y Robótica). De la electrónica básica al sistema automatizado propio y una primera experiencia de Internet de las Cosas con micro:bit.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260717142126AR3SDA05","packageTitle":"Conecta el mundo físico: Arduino e Internet de las Cosas","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260717142126PAGE10" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Inicio</a>
+</li>
+<li> <a href="../html/s1-computacion-fisica.html" class="no-ch">S1 · Computación física</a>
+</li>
+<li> <a href="../html/s2-circuitos-en-tinkercad.html" class="no-ch">S2 · Circuitos en TinkerCAD</a>
+</li>
+<li> <a href="../html/s3-arduino-y-bloques.html" class="no-ch">S3 · Arduino y bloques</a>
+</li>
+<li> <a href="../html/s4-salidas-digitales-y-bucles.html" class="no-ch">S4 · Salidas digitales y bucles</a>
+</li>
+<li> <a href="../html/s5-pwm-y-led-rgb.html" class="no-ch">S5 · PWM y LED RGB</a>
+</li>
+<li> <a href="../html/s6-entradas-digitales.html" class="no-ch">S6 · Entradas digitales</a>
+</li>
+<li> <a href="../html/s7-entradas-analogicas-y-sensores.html" class="no-ch">S7 · Entradas analógicas y sensores</a>
+</li>
+<li> <a href="../html/s8-del-bloque-al-texto.html" class="no-ch">S8 · Del bloque al texto</a>
+</li>
+<li> <a href="../html/s9-iot-con-microbit.html" class="no-ch">S9 · IoT con micro:bit</a>
+</li>
+<li class="active"> <a href="../html/s10-sistema-propio-y-demo.html" class="active no-ch">S10 · Sistema propio y demo</a>
+</li>
+<li> <a href="../html/chuleta-y-extensiones.html" class="no-ch">Chuleta y extensiones</a>
+</li>
+</ul>
+</nav><main id="20260717142126PAGE10" class="page"> 
+<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">11</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">12</strong></span></p>
+
+<div class="package-header"><p class="package-title">Conecta el mundo físico: Arduino e Internet de las Cosas</p></div>
+<div class="page-header"><h1 class="page-title">S10 · Sistema propio y demo</h1></div>
+</header><div id="page-content-20260717142126PAGE10" class="page-content">
+<article id="20260717142126BLK010" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260717142126IDEV010" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260717142126IDEV010&quot;}">
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Ahora te toca a ti: diseña un sistema</p>
+  <p>Es el momento de juntarlo todo. En pareja, vais a diseñar, programar y presentar un
+  <strong>sistema automatizado propio</strong>: una <strong>entrada</strong> que percibe algo,
+  un <strong>programa</strong> que decide y una <strong>salida</strong> que actúa. Aplicaréis el
+  <strong>ciclo de vida del software</strong> que visteis en la S1: analizar → diseñar → desarrollar →
+  probar → poner en marcha.</p>
+</div>
+
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">Qué debe tener tu sistema (mínimo común)</p>
+  <ul>
+    <li>Al menos <strong>una entrada</strong> del shield: pulsador (2/3), potenciómetro (A0),
+    sensor de luz (A1) o de temperatura (A2).</li>
+    <li>Un <strong>programa en bloques</strong> que use, como mínimo, un <strong>bucle</strong> y un
+    <strong>condicional</strong>.</li>
+    <li>Al menos <strong>una salida</strong> del shield: LED azul/rojo (13/12), LED RGB (9-11-10) o
+    zumbador (5).</li>
+    <li><strong>Montaje real en el shield</strong> y <strong>gemelo en TinkerCAD</strong> (circuito llamado <strong>S10 gemelo</strong>): monta en la protoboard virtual el circuito equivalente (es el «plano» de tu sistema y demuestra que sabes qué hay
+    por dentro).</li>
+  </ul>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Ideas para empezar (todas salen con el shield)</p>
+  <table class="tabla-datos">
+    <tr><th>Sistema</th><th>Entrada → Salida</th></tr>
+    <tr><td>Farola inteligente con aviso</td><td>LDR (A1) → LED + pitido al anochecer</td></tr>
+    <tr><td>Alarma con desactivación</td><td>LDR o pulsador → zumbador + LED rojo; SW2 la apaga</td></tr>
+    <tr><td>Lámpara de colores regulable</td><td>Potenciómetro (A0) → color o brillo del RGB</td></tr>
+    <tr><td>Semáforo con botón de peatón</td><td>SW1 (2) → secuencia de colores del RGB</td></tr>
+    <tr><td>Termómetro de ambiente</td><td>LM35 (A2) → color del RGB según la temperatura</td></tr>
+    <tr><td>Timbre musical accesible</td><td>SW2 (3) → melodía RTTTL + luz a la vez</td></tr>
+  </table>
+  <p>…o cualquier otra que se os ocurra (¡consultadla antes con vuestro profesor!).</p>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Entregas del proyecto</p>
+  <p>En Google Classroom entregaréis <strong>tres cosas</strong>:</p>
+  <ul>
+    <li>El <strong>programa</strong>: proyecto de STEAMakersBlocks llamado <strong>S10 sistema</strong>; entregad la captura de los bloques como <strong>s10_programa.png</strong> (o el código como <strong>s10_programa.txt</strong>).</li>
+    <li>La <strong>ficha IoT</strong> del sistema: la encontraréis <strong>ya creada dentro de la tarea de Classroom</strong> (una copia para cada uno; no hay que adjuntar nada). En ella contaréis qué hace vuestro sistema, qué sensor mandaría datos a la nube, con qué protocolo (BLE, Zigbee, WiFi…) y para qué serviría.</li>
+    <li>Una <strong>demo</strong>: vídeo del sistema funcionando en el shield (con el papelito de <strong>iniciales y curso</strong> de los dos miembros) como <strong>s10_demo.mp4</strong>, más la captura del gemelo en TinkerCAD como <strong>s10_gemelo.png</strong>.</li>
+  </ul>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Tarea final · Sistema automatizado propio + ficha IoT + demo</p>
+  <p>Diseñad vuestro sistema, programadlo, probadlo en el shield y montad el gemelo en TinkerCAD.
+  Completad la ficha IoT y grabad la demo. Recordad usar los nombres de archivo indicados arriba (sin nombres personales) y, con todo dentro (programa + ficha rellena + demo + gemelo), pulsad <strong>«Entregar»</strong> en plazo.</p>
+</div>
+
+<div class="bloque bloque-nota">
+  <p class="bloque-titulo">Cómo se valora (buenas prácticas)</p>
+  <p>Además de que funcione, cuenta el <strong>orden del programa</strong> (variables con nombres claros,
+  funciones si las usáis), la <strong>claridad de la ficha y la demo</strong>, y el
+  <strong>trabajo en equipo</strong>: repartid los papeles y que se note que habéis colaborado los dos.</p>
+</div>
+
+<div class="bloque bloque-dua">
+  <p class="bloque-titulo">Para subir el nivel (opcional)</p>
+  <ul>
+    <li><strong>Segunda entrada o salida</strong>: p. ej., farola que además pita, o semáforo con sonido.</li>
+    <li><strong>Sensor DHT11</strong> (pin 4): temperatura y humedad con su bloque propio de STEAMakersBlocks.</li>
+    <li><strong>Mando a distancia</strong>: el receptor de infrarrojos (pin 6) permite controlar el sistema
+    con un mando. Preguntad a vuestro profesor.</li>
+    <li><strong>Servomotor</strong> en un puerto libre del shield (¿una barrera para el semáforo?):
+    consultad cómo conectarlo.</li>
+    <li><strong>Versión en texto</strong>: escribid el programa (o parte) en C, como en la S8.</li>
+  </ul>
+</div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/s9-iot-con-microbit.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/chuleta-y-extensiones.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class=""> <p> <span class="license-label">Licencia: </span><span class="license">creative commons: attribution - share alike</span></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

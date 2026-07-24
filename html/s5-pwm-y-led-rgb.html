@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260717142126PAGE05">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S5 · PWM y LED RGB | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Unidad de computación física y Arduino para 3.º de ESO (Computación y Robótica). De la electrónica básica al sistema automatizado propio y una primera experiencia de Internet de las Cosas con micro:bit.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260717142126AR3SDA05","packageTitle":"Conecta el mundo físico: Arduino e Internet de las Cosas","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../idevices/trueorfalse/trueorfalse.js"></script><link rel="stylesheet" href="../idevices/trueorfalse/trueorfalse.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260717142126PAGE05" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Inicio</a>
+</li>
+<li> <a href="../html/s1-computacion-fisica.html" class="no-ch">S1 · Computación física</a>
+</li>
+<li> <a href="../html/s2-circuitos-en-tinkercad.html" class="no-ch">S2 · Circuitos en TinkerCAD</a>
+</li>
+<li> <a href="../html/s3-arduino-y-bloques.html" class="no-ch">S3 · Arduino y bloques</a>
+</li>
+<li> <a href="../html/s4-salidas-digitales-y-bucles.html" class="no-ch">S4 · Salidas digitales y bucles</a>
+</li>
+<li class="active"> <a href="../html/s5-pwm-y-led-rgb.html" class="active no-ch">S5 · PWM y LED RGB</a>
+</li>
+<li> <a href="../html/s6-entradas-digitales.html" class="no-ch">S6 · Entradas digitales</a>
+</li>
+<li> <a href="../html/s7-entradas-analogicas-y-sensores.html" class="no-ch">S7 · Entradas analógicas y sensores</a>
+</li>
+<li> <a href="../html/s8-del-bloque-al-texto.html" class="no-ch">S8 · Del bloque al texto</a>
+</li>
+<li> <a href="../html/s9-iot-con-microbit.html" class="no-ch">S9 · IoT con micro:bit</a>
+</li>
+<li> <a href="../html/s10-sistema-propio-y-demo.html" class="no-ch">S10 · Sistema propio y demo</a>
+</li>
+<li> <a href="../html/chuleta-y-extensiones.html" class="no-ch">Chuleta y extensiones</a>
+</li>
+</ul>
+</nav><main id="20260717142126PAGE05" class="page"> 
+<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">6</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">12</strong></span></p>
+
+<div class="package-header"><p class="package-title">Conecta el mundo físico: Arduino e Internet de las Cosas</p></div>
+<div class="page-header"><h1 class="page-title">S5 · PWM y LED RGB</h1></div>
+</header><div id="page-content-20260717142126PAGE05" class="page-content">
+<article id="20260717142126BLK005" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260717142126IDEV005" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260717142126IDEV005&quot;}">
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Más que encender: graduar</p>
+  <p>Con una salida digital un LED solo puede estar encendido o apagado. Pero ¿y si queremos que
+  brille a media luz? Para eso usamos <strong>PWM</strong> (modulación por ancho de
+  pulso): la placa enciende y apaga el pin muchísimas veces por segundo; si está más
+  tiempo encendido, el LED se ve más brillante. Nuestro ojo lo percibe como un brillo intermedio.</p>
+  <figure><img src="../content/resources/graficaPWM.png" alt="Formas de onda PWM con distintos anchos de pulso y su valor de 0 a 255"><figcaption>Cuanto mayor es el tiempo en alto, más brillo. El valor va de 0 a 255.</figcaption></figure>
+</div>
+
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">Idea clave</p>
+  <p>En Arduino, un valor PWM va de <strong>0</strong> (apagado) a <strong>255</strong> (máximo). Solo
+  algunos pines pueden dar PWM: los marcados con el símbolo <code>~</code> (3, 5, 6, 9, 10 y 11).
+  El LED RGB del shield está conectado a tres de ellos.</p>
+</div>
+
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">El LED RGB del shield</p>
+  <p>Un <strong>LED RGB</strong> es en realidad tres LEDs en uno: rojo, verde y azul. Combinando el
+  brillo (PWM) de cada color se consigue casi cualquier color. En el shield está conectado así:</p>
+  <table class="tabla-datos">
+    <tr><th>Color</th><th>Pin del shield</th></tr>
+    <tr><td>Rojo (R)</td><td>9</td></tr>
+    <tr><td>Verde (G)</td><td><strong>11</strong></td></tr>
+    <tr><td>Azul (B)</td><td><strong>10</strong></td></tr>
+  </table>
+  <p>⚠️ Fíjate bien: <strong>el verde va al 11 y el azul al 10</strong>. Si tus colores salen «cambiados»,
+  casi seguro que es esto.</p>
+  <figure><img src="../content/resources/led-rgb-1.png" alt="Esquema de un LED RGB con sus tres ánodos de color y el cátodo común"></figure>
+</div>
+
+<div class="bloque bloque-resuelto">
+  <p class="bloque-titulo">Práctica guiada · Colores y brillo</p>
+  <p><strong>Parte 1 — Secuencia de colores.</strong> En el Bucle, escribe con bloques
+  <em>Escribir analógica (PWM)</em>:</p>
+  <ol>
+    <li>Rojo a tope: pin 9 = 255, pines 11 y 10 = 0. Espera 1 s.</li>
+    <li>Verde a tope: pin 11 = 255, pines 9 y 10 = 0. Espera 1 s.</li>
+    <li>Azul a tope: pin 10 = 255, pines 9 y 11 = 0. Espera 1 s.</li>
+  </ol>
+  <p>Sube el programa: el RGB del shield rota rojo → verde → azul.</p>
+  <p><strong>Parte 2 — Brillo gradual (fade).</strong> Deja solo el canal rojo y hazlo subir de 0 a 255
+  poco a poco con un bucle. Este es el patrón de bloques (en el shield, usa el pin 9):</p>
+  <figure><img src="../content/resources/abp1.1.png" alt="Bloques que suben el valor PWM por escalones de 0 a 255 con esperas"><figcaption>Versión por escalones. Pista: con el bloque «contar con i desde 0 hasta 255» queda mucho más corto usando i como valor PWM.</figcaption></figure>
+  <p><strong>Resultado esperado:</strong> el rojo se enciende gradualmente, como un amanecer.</p>
+</div>
+
+<div class="bloque bloque-resuelto">
+  <p class="bloque-titulo">Abre el capó · El RGB por dentro (TinkerCAD)</p>
+  <p>Monta en TinkerCAD, en un circuito llamado <strong>S5 gemelo</strong>, un LED RGB en la protoboard: el cátodo común a GND y cada color, con su
+  resistencia de 220 Ω, a su pin del shield (rojo→9, verde→11, azul→10). Te quedará parecido a esto:</p>
+  <figure><img src="../content/resources/led-rgb-2.png" alt="Montaje de un LED RGB con tres resistencias en protoboard conectado a Arduino"></figure>
+  <p>Pega el <strong>mismo código</strong> de la parte 1 y simula: los colores rotan igual que en el shield.
+  (En TinkerCAD, pasa el ratón por las patas del RGB para identificar cada color.)</p>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Tarea B1 · Respiración de color</p>
+  <p>Programa el canal que quieras del RGB para que suba de brillo de 0 a 255 y vuelva a bajar a 0,
+  en bucle (efecto «respiración»). Pista: dos bucles <em>contar con</em>, uno subiendo y otro bajando,
+  con una espera pequeña (10 ms) dentro. Hazlo en un proyecto llamado <strong>B1 respiración</strong>, graba el resultado como <strong>b1_respiracion.mp4</strong> y añádelo a la tarea <strong>«Tareas de Arduino (S2–S7)»</strong>.</p>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Tarea B2 · Semáforo de verdad</p>
+  <p>Convierte el RGB en un semáforo: <strong>rojo</strong> (3 s) → <strong>verde</strong> (3 s) →
+  <strong>ámbar</strong> (1 s), en bucle. El ámbar no existe como color del LED: tendrás que
+  <strong>mezclarlo</strong> (rojo a tope + verde a medias, prueba valores). Hazlo en un proyecto llamado <strong>B2 semáforo RGB</strong> y añade a la tarea <strong>«Tareas de Arduino (S2–S7)»</strong> la captura de bloques como <strong>b2_bloques.png</strong> y el vídeo del shield (papelito de iniciales y curso) como <strong>b2_semaforo_rgb.mp4</strong> — recuerda: sin «Entregar» aún.</p>
+</div>
+
+<div class="bloque bloque-dua">
+  <p class="bloque-titulo">Reto (opcional)</p>
+  <p>Consigue el <strong>naranja</strong>, el <strong>morado</strong> y <strong>tu color favorito</strong>
+  mezclando valores de los tres canales. Anota qué valores de 0 a 255 has usado para cada uno:
+  los necesitarás si tu sistema propio (S10) usa colores.</p>
+</div>
+</div>
+</div>
+</article><article id="block-mrypkm0f-5y454wc29" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Verdadero o falso</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-1784883535214-hahgow4dc" class="idevice_node trueorfalse" data-idevice-path="../idevices/trueorfalse/" data-idevice-type="trueorfalse" data-idevice-component-type="json" data-idevice-json-data="{&quot;id&quot;:&quot;idevice-1784883535214-hahgow4dc&quot;,&quot;typeGame&quot;:&quot;TrueOrFalse&quot;,&quot;eXeGameInstructions&quot;:&quot;&lt;p&gt;Responde todas las preguntas del cuestionario.&lt;/p&gt;&quot;,&quot;eXeIdeviceTextAfter&quot;:&quot;&quot;,&quot;msgs&quot;:{&quot;msgStartGame&quot;:&quot;Pulsa aquí para empezar&quot;,&quot;msgTime&quot;:&quot;Tiempo por pregunta&quot;,&quot;msgNoImage&quot;:&quot;Pregunta sin imágenes&quot;,&quot;msgScoreScorm&quot;:&quot;La puntuación no se puede guardar porque esta página no forma parte  de un paquete SCORM.&quot;,&quot;msgEndGameScore&quot;:&quot;Comience la partida antes de guardar la puntuación.&quot;,&quot;msgOnlySaveScore&quot;:&quot;¡Solo puede guardar la puntuación una vez!&quot;,&quot;msgOnlySave&quot;:&quot;Solo puede guardar una vez&quot;,&quot;msgYouScore&quot;:&quot;Su puntuación&quot;,&quot;msgAuthor&quot;:&quot;Autoría&quot;,&quot;msgOnlySaveAuto&quot;:&quot;Su puntuación se guardará después de cada pregunta. Solo puede jugar una vez.&quot;,&quot;msgSaveAuto&quot;:&quot;Su puntuación se guardará automáticamente después de cada pregunta.&quot;,&quot;msgSeveralScore&quot;:&quot;Puede guardar la puntuación tantas veces como quiera&quot;,&quot;msgYouLastScore&quot;:&quot;La última puntuación guardada es&quot;,&quot;msgActityComply&quot;:&quot;Ya ha realizado esta actividad.&quot;,&quot;msgPlaySeveralTimes&quot;:&quot;Puede realizar esta actividad cuantas veces quiera&quot;,&quot;msgUncompletedActivity&quot;:&quot;Actividad no completada&quot;,&quot;msgSuccessfulActivity&quot;:&quot;Actividad superada. Puntuación: %s&quot;,&quot;msgUnsuccessfulActivity&quot;:&quot;Actividad no superada. Puntuación: %s&quot;,&quot;msgTypeGame&quot;:&quot;Verdadero o falso&quot;,&quot;msgFeedback&quot;:&quot;Retroalimentación&quot;,&quot;msgSuggestion&quot;:&quot;Sugerencia&quot;,&quot;msgSolution&quot;:&quot;Solución&quot;,&quot;msgQuestion&quot;:&quot;Pregunta&quot;,&quot;msgTrue&quot;:&quot;Verdadero&quot;,&quot;msgFalse&quot;:&quot;Falso&quot;,&quot;msgOk&quot;:&quot;Correcto&quot;,&quot;msgKO&quot;:&quot;Incorrecto&quot;,&quot;msgShow&quot;:&quot;Mostrar&quot;,&quot;msgHide&quot;:&quot;Ocultar&quot;,&quot;msgCheck&quot;:&quot;Comprobar&quot;,&quot;msgReboot&quot;:&quot;¡Prueba otra vez!&quot;,&quot;msgScore&quot;:&quot;Puntuación&quot;,&quot;msgWeight&quot;:&quot;Peso&quot;,&quot;msgNext&quot;:&quot;Siguiente&quot;,&quot;msgPrevious&quot;:&quot;Anterior&quot;},&quot;questionsRandom&quot;:false,&quot;percentageQuestions&quot;:100,&quot;isTest&quot;:false,&quot;time&quot;:0,&quot;questionsGame&quot;:[{&quot;question&quot;:&quot;&lt;p&gt;Un valor PWM en Arduino va de 0 a 255.&lt;/p&gt;&quot;,&quot;feedback&quot;:&quot;&quot;,&quot;suggestion&quot;:&quot;&quot;,&quot;solution&quot;:1},{&quot;question&quot;:&quot;&lt;p&gt;Un LED RGB es en realidad tres LEDs (rojo, verde y azul) en uno.&lt;/p&gt;&quot;,&quot;feedback&quot;:&quot;&quot;,&quot;suggestion&quot;:&quot;&quot;,&quot;solution&quot;:1},{&quot;question&quot;:&quot;&lt;p&gt;Cualquier pin de la placa puede dar PWM&lt;/p&gt;&quot;,&quot;feedback&quot;:&quot;&lt;p&gt;Solo los marcados con ~&lt;/p&gt;&quot;,&quot;suggestion&quot;:&quot;&quot;,&quot;solution&quot;:0},{&quot;question&quot;:&quot;&lt;p&gt;En el shield, el canal verde del RGB está en el pin 11 y el azul en el 10.&lt;/p&gt;&quot;,&quot;feedback&quot;:&quot;&quot;,&quot;suggestion&quot;:&quot;&quot;,&quot;solution&quot;:1}],&quot;isScorm&quot;:0,&quot;textButtonScorm&quot;:&quot;Guardar la puntuación&quot;,&quot;repeatActivity&quot;:true,&quot;weighted&quot;:100,&quot;evaluation&quot;:false,&quot;evaluationID&quot;:&quot;&quot;,&quot;showSlider&quot;:false,&quot;ideviceId&quot;:&quot;idevice-1784883535214-hahgow4dc&quot;}" data-idevice-template="trueorfalse.html">
+<div class="exe-trueorfalse-container">
+  
+    <div class="game-evaluation-ids js-hidden" data-id="idevice-1784883535214-hahgow4dc" data-evaluationb="false" data-evaluationid=""></div>
+        <div class="TOFP-instructions"><p>Responde todas las preguntas del cuestionario.</p></div>
+        <div class="TOFP-MainContainer" data-instance="idevice-1784883535214-hahgow4dc" id="tofPMainContainer-idevice-1784883535214-hahgow4dc">
+            <div class="TOFP-GameContainer" id="tofPGameContainer-idevice-1784883535214-hahgow4dc">
+                <div class="TOFP-GameScoreBoard TOFP-EHidden">
+                    <div class="TOFP-TimeNumber">
+                        <strong><span class="sr-av">Tiempo por pregunta:</span></strong>
+                        <p id="tofPPTime-idevice-1784883535214-hahgow4dc" class="TOFP-PTime">00:00:</p>
+                    </div>
+                </div>
+                <div class="TOFP-MessgeDiv" id="tofPMessageDiv-idevice-1784883535214-hahgow4dc">
+                    <div class="TOFP-Message" id="tofPMessage-idevice-1784883535214-hahgow4dc"></div>
+                </div>
+                <div class="TOFP-StartGameDiv TOFP-EHidden" id="tofPStartGameDiv-idevice-1784883535214-hahgow4dc">
+                    <button  id="tofPStartGame-idevice-1784883535214-hahgow4dc" type="button" class="btn btn-primary">Pulsa aquí para empezar</button>
+                </div>
+                <div class="TOFP-Multimedia " id="tofPMultimedia-idevice-1784883535214-hahgow4dc">
+                </div>
+                <div class="TOFP-CheckTestDiv TOFP-EHidden" id="tofPCheckTestDiv-idevice-1784883535214-hahgow4dc">
+                    <button id="tofPCheckTest-idevice-1784883535214-hahgow4dc" type="button" class="btn btn-primary">Comprobar</button>
+                    <button id="tofRebootTest-idevice-1784883535214-hahgow4dc" type="button" class="btn btn-primary TOFP-EHidden">¡Prueba otra vez!</button>
+                </div>
+        </div> 
+        <div class="Games-BottonContainer">
+            <div class="Games-GetScore">
+                <input id="tofPSendScore-idevice-1784883535214-hahgow4dc" type="button" value="Guardar la puntuación" class="feedbackbutton Games-SendScore" style="display:none"/> <span class="Games-RepeatActivity"></span>
+            </div>
+        </div>
+        <div class="TOFP-After"></div>
+        <div class="questionsMedia" style="display:none"></div>
+</div>
+
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/s4-salidas-digitales-y-bucles.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/s6-entradas-digitales.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class=""> <p> <span class="license-label">Licencia: </span><span class="license">creative commons: attribution - share alike</span></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

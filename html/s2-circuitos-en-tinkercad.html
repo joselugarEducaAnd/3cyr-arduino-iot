@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260717142126PAGE02">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S2 · Circuitos en TinkerCAD | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Unidad de computación física y Arduino para 3.º de ESO (Computación y Robótica). De la electrónica básica al sistema automatizado propio y una primera experiencia de Internet de las Cosas con micro:bit.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260717142126AR3SDA05","packageTitle":"Conecta el mundo físico: Arduino e Internet de las Cosas","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260717142126PAGE02" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Inicio</a>
+</li>
+<li> <a href="../html/s1-computacion-fisica.html" class="no-ch">S1 · Computación física</a>
+</li>
+<li class="active"> <a href="../html/s2-circuitos-en-tinkercad.html" class="active no-ch">S2 · Circuitos en TinkerCAD</a>
+</li>
+<li> <a href="../html/s3-arduino-y-bloques.html" class="no-ch">S3 · Arduino y bloques</a>
+</li>
+<li> <a href="../html/s4-salidas-digitales-y-bucles.html" class="no-ch">S4 · Salidas digitales y bucles</a>
+</li>
+<li> <a href="../html/s5-pwm-y-led-rgb.html" class="no-ch">S5 · PWM y LED RGB</a>
+</li>
+<li> <a href="../html/s6-entradas-digitales.html" class="no-ch">S6 · Entradas digitales</a>
+</li>
+<li> <a href="../html/s7-entradas-analogicas-y-sensores.html" class="no-ch">S7 · Entradas analógicas y sensores</a>
+</li>
+<li> <a href="../html/s8-del-bloque-al-texto.html" class="no-ch">S8 · Del bloque al texto</a>
+</li>
+<li> <a href="../html/s9-iot-con-microbit.html" class="no-ch">S9 · IoT con micro:bit</a>
+</li>
+<li> <a href="../html/s10-sistema-propio-y-demo.html" class="no-ch">S10 · Sistema propio y demo</a>
+</li>
+<li> <a href="../html/chuleta-y-extensiones.html" class="no-ch">Chuleta y extensiones</a>
+</li>
+</ul>
+</nav><main id="20260717142126PAGE02" class="page"> 
+<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">3</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">12</strong></span></p>
+
+<div class="package-header"><p class="package-title">Conecta el mundo físico: Arduino e Internet de las Cosas</p></div>
+<div class="page-header"><h1 class="page-title">S2 · Circuitos en TinkerCAD</h1></div>
+</header><div id="page-content-20260717142126PAGE02" class="page-content">
+<article id="20260717142126BLK002" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260717142126IDEV002" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260717142126IDEV002&quot;}">
+<div class="bloque bloque-teoria">
+  <p class="bloque-titulo">Antes de programar, el circuito</p>
+  <p>Para que un programa encienda un LED, primero tiene que existir un <strong>circuito</strong>: un
+  camino cerrado por el que circula la corriente. En esta sesión aprenderás a montar circuitos
+  sencillos en un <strong>simulador</strong>, así puedes probar todo sin gastar componentes ni
+  arriesgarte a romper nada.</p>
+</div>
+
+<div class="bloque bloque-nota">
+  <p class="bloque-titulo">¿Y en clase, cablearemos?</p>
+  <p>Muy poco: en el aula usaremos el <strong>shield</strong>, que trae los circuitos ya montados por
+  dentro. La protoboard la vas a dominar aquí, en el simulador; y en las próximas sesiones
+  «abrirás el capó» del shield montando en TinkerCAD los circuitos que él esconde.</p>
+</div>
+
+<h2>1. Entra en TinkerCAD</h2>
+<p>Usaremos <a href="https://www.tinkercad.com" target="_blank" rel="noopener">TinkerCAD</a>, un
+simulador muy sencillo en el que se ven los componentes reales (no solo símbolos). Para entrar en
+nuestra clase, usa el <strong>enlace de la tarea de Google Classroom</strong> y pulsa
+<strong>«Unirse con apodo»</strong>.</p>
+<figure><img src="../content/resources/unirse_con_sesion1.png" alt="Botón Unirse con apodo en TinkerCAD"></figure>
+<p>Después, escribe tu <strong>usuario IdEA</strong> (el mismo de Classroom, pero <strong>sin</strong>
+la parte <code>@g.educaand.es</code>) y pulsa <strong>«¡Soy yo!»</strong>.</p>
+<figure><img src="../content/resources/unirse_con_sesion2.png" alt="Pantalla para escribir el alias en TinkerCAD"></figure>
+
+<h2>2. La placa de pruebas (protoboard)</h2>
+<p>La <strong>protoboard</strong> (o placa de pruebas) es un rectángulo lleno de orificios. Lo
+importante es que esos orificios están <strong>conectados por dentro</strong> de una forma concreta:
+así puedes unir componentes y cables <strong>sin soldar</strong>, y desmontarlo cuando quieras.</p>
+<figure><img src="../content/resources/conexiones_protoboard.png" alt="Conexiones internas de una protoboard"><figcaption>Meter un cable o una patilla en un orificio es como soldarlo con los de su mismo grupo.</figcaption></figure>
+<p>En TinkerCAD hay tres tamaños de placa. Usaremos siempre la <strong>mediana</strong> (en TinkerCAD
+se llama «placa de pruebas pequeña»), que ya trae los raíles de alimentación arriba y abajo.</p>
+<figure><img src="../content/resources/protoboards_tinkercad.png" alt="Tamaños de protoboard disponibles en TinkerCAD"></figure>
+
+<h3>Las tres zonas de la placa</h3>
+<figure><img src="../content/resources/zonas_protoboard.png" alt="Las tres zonas de una protoboard"></figure>
+<p><strong>Buses o raíles de alimentación</strong> — las filas de arriba y abajo, marcadas con
+<strong>+</strong> y <strong>−</strong>. Todos los orificios de cada una de estas filas están unidos
+<strong>en horizontal</strong>. Aquí conectamos la energía (el + y el − de la fuente) y así la tenemos
+disponible a lo largo de toda la placa.</p>
+<figure><img src="../content/resources/buses_proto.png" alt="Raíles de alimentación de la protoboard"></figure>
+<p><strong>Tiras de conectores</strong> — el centro de la placa. Son grupos de <strong>5 orificios
+unidos en vertical</strong>. El canal del medio separa la mitad de arriba de la de abajo.</p>
+<figure><img src="../content/resources/tiras_proto.png" alt="Tiras de conectores de la protoboard"></figure>
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">Regla imprescindible</p>
+  <p><strong>Las dos patillas de un mismo componente NUNCA van en la misma tira de 5.</strong> Si las
+  pones en el mismo grupo, es como unirlas con un cable y el componente no hace nada: la corriente tiene
+  que <strong>entrar por una patilla y salir por la otra</strong>.</p>
+</div>
+
+<h3>Cables puente (jumpers)</h3>
+<p>Cuando dos orificios que necesitas unir quedan lejos, usamos <strong>cables puente</strong> (o
+«jumpers»). En TinkerCAD basta con hacer <strong>clic en un orificio y en otro</strong> para tender un
+cable entre ellos. En los montajes reales, tu kit ya trae cables de colores listos para pinchar (los
+llamados cables DuPont).</p>
+<figure><img src="../content/resources/cables_dupont.png" alt="Cables puente o jumpers DuPont"></figure>
+
+<h2>3. El LED y la resistencia</h2>
+<p>Un <strong>LED</strong> es un diodo que emite luz. Tiene <strong>polaridad</strong>: la patita larga
+(ánodo, +) y la corta (cátodo, −). Si lo conectas al revés, no luce. Y <strong>siempre</strong> se
+acompaña de una <strong>resistencia</strong>, que limita la corriente para que el LED no se queme.</p>
+<figure><img src="../content/resources/anodocatodoled.png" alt="Ánodo (patita larga) y cátodo (patita corta) de un LED"></figure>
+<div class="bloque bloque-formula">
+  <p class="bloque-titulo">Regla de oro</p>
+  <p>Un LED <strong>nunca</strong> va solo: siempre lleva una resistencia en serie (por ejemplo, de
+  220&nbsp;Ω). Sin ella, el LED recibe demasiada corriente y se estropea.</p>
+</div>
+<p>Este es el circuito que vamos a montar: una fuente que alimenta un LED con su resistencia en serie.
+Con símbolos se dibuja así:</p>
+<figure><img src="../content/resources/circuito_LED.png" alt="Circuito de un LED con su resistencia (esquema)"></figure>
+
+<div class="bloque bloque-resuelto">
+  <p class="bloque-titulo">Práctica guiada · Monta UN LED en la protoboard, paso a paso</p>
+  <ol>
+    <li>Crea un circuito nuevo en TinkerCAD, llámalo exactamente <strong>S2 práctica</strong> y arrastra una <strong>protoboard</strong> mediana.</li>
+    <li>Coloca el <strong>LED</strong> con cada patilla en una <strong>columna distinta</strong>, de modo
+    que las dos patillas <strong>no se conecten entre sí</strong>. Identifica cuál es el
+    <strong>ánodo</strong> (patilla larga).</li>
+    <li>Coloca la <strong>resistencia de 220&nbsp;Ω</strong> <strong>en horizontal</strong>: una patilla
+    en la misma columna que el <strong>ánodo</strong> del LED y la otra unas columnas a la derecha.</li>
+    <li>Con un <strong>cable puente</strong>, une ese otro extremo de la resistencia con el
+    <strong>raíl +</strong> (el rojo).</li>
+    <li>Con otro <strong>cable puente</strong>, une la columna del <strong>cátodo</strong> con el
+    <strong>raíl −</strong> (el negro).</li>
+    <li>Alimenta los raíles con un <strong>portapilas</strong> (más adelante, en la S4, será la placa
+    Arduino): el <strong>+</strong> al raíl + y el <strong>−</strong> al raíl −.</li>
+    <li>Pulsa <strong>«Iniciar simulación»</strong>: el LED debe iluminarse.</li>
+  </ol>
+  <p>Bien montado en TinkerCAD, tu circuito se parecerá a este:</p>
+  <figure><img src="../content/resources/s2_montaje_1led_tinkercad.png" alt="Montaje en TinkerCAD de un LED con una resistencia de 220 ohmios en horizontal, alimentado por un portapilas sobre una protoboard"><figcaption>El LED, la resistencia de 220&nbsp;Ω en horizontal y el portapilas, con cables puente a los raíles + (rojo) y − (negro).</figcaption></figure>
+  <p>Prueba a girar el LED del revés: verás que <strong>no luce</strong> (es la polaridad).</p>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Tarea S2 · Dos LEDs en TinkerCAD</p>
+  <p>Ahora repítelo tú con <strong>dos LEDs de colores distintos</strong>, cada uno con su resistencia,
+  encendidos a la vez sobre la misma protoboard. Comparte los dos raíles (+ y −) para alimentar los dos
+  LEDs, y recuerda: las dos patillas de cada LED en <strong>tiras distintas</strong>.
+  <strong>Nombra el proyecto</strong> exactamente así: <strong>S2 dos LEDs</strong>. No hace falta
+  que entregues archivo: tu profesor ve tus proyectos de TinkerCAD por el nombre.</p>
+</div>
+
+<div class="bloque bloque-nota">
+  <p class="bloque-titulo">Si algo no enciende, repasa</p>
+  <ul>
+    <li>¿Las dos patillas de un componente están en <strong>tiras distintas</strong> (no en la misma)?</li>
+    <li>¿El LED está en el <strong>sentido correcto</strong> (ánodo hacia la resistencia y el +)?</li>
+    <li>¿Los <strong>raíles</strong> + y − están alimentados desde la fuente?</li>
+  </ul>
+</div>
+
+<div class="bloque bloque-dua">
+  <p class="bloque-titulo">Extensión (opcional)</p>
+  <p>Añade un <strong>tercer LED</strong> y coloca todos los cátodos en el mismo raíl negativo de la
+  protoboard, usando un único cable de vuelta al negativo. ¿Funciona igual? Piensa por qué.</p>
+</div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/s1-computacion-fisica.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/s3-arduino-y-bloques.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class=""> <p> <span class="license-label">Licencia: </span><span class="license">creative commons: attribution - share alike</span></p>
+</div>
+</div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>
