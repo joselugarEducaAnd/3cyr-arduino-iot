@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="eXeLearning v4.0.5">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>S10 · Sistema propio y demo | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
+<title>S10 · Sistema propio: diseño | Conecta el mundo físico: Arduino e Internet de las Cosas</title>
 <link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
 <meta name="description" content="Unidad de computación física y Arduino para 3.º de ESO (Computación y Robótica). De la electrónica básica al sistema automatizado propio y una primera experiencia de Internet de las Cosas con micro:bit.">
 <script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
@@ -35,16 +35,18 @@
 </li>
 <li> <a href="../html/s9-iot-con-microbit.html" class="no-ch">S9 · IoT con micro:bit</a>
 </li>
-<li class="active"> <a href="../html/s10-sistema-propio-y-demo.html" class="active no-ch">S10 · Sistema propio y demo</a>
+<li class="active"> <a href="../html/s10-sistema-propio-diseno.html" class="active no-ch">S10 · Sistema propio: diseño</a>
+</li>
+<li> <a href="../html/s11-sistema-propio-demo.html" class="no-ch">S11 · Sistema propio: demo</a>
 </li>
 <li> <a href="../html/chuleta-y-extensiones.html" class="no-ch">Chuleta y extensiones</a>
 </li>
 </ul>
 </nav><main id="20260717142126PAGE10" class="page"> 
-<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">11</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">12</strong></span></p>
+<header class="main-header"> <p class="page-counter"> <span class="page-counter-label">Página </span><span class="page-counter-content"> <strong class="page-counter-current-page">11</strong><span class="page-counter-sep">/</span><strong class="page-counter-total">13</strong></span></p>
 
 <div class="package-header"><p class="package-title">Conecta el mundo físico: Arduino e Internet de las Cosas</p></div>
-<div class="page-header"><h1 class="page-title">S10 · Sistema propio y demo</h1></div>
+<div class="page-header"><h1 class="page-title">S10 · Sistema propio: diseño</h1></div>
 </header><div id="page-content-20260717142126PAGE10" class="page-content">
 <article id="20260717142126BLK010" class="box no-header">
 <header class="box-head no-icon">
@@ -60,6 +62,8 @@
   un <strong>programa</strong> que decide y una <strong>salida</strong> que actúa. Aplicaréis el
   <strong>ciclo de vida del software</strong> que visteis en la S1: analizar → diseñar → desarrollar →
   probar → poner en marcha.</p>
+  <p>Tenéis <strong>dos sesiones</strong>: en esta diseñáis, programáis, simuláis y montáis; en la
+  siguiente depuráis, escribís la versión en texto, completáis la ficha IoT y hacéis la demo.</p>
 </div>
 
 <div class="bloque bloque-formula">
@@ -90,27 +94,21 @@
   <p>…o cualquier otra que se os ocurra (¡consultádmela antes!).</p>
 </div>
 
-<div class="bloque bloque-teoria">
-  <p class="bloque-titulo">Entregas del proyecto</p>
-  <p>En Google Classroom entregaréis <strong>tres cosas</strong>:</p>
-  <ul>
-    <li>El <strong>programa</strong>: proyecto de STEAMakersBlocks llamado <strong>S10 sistema</strong>; entregad la captura de los bloques como <strong>s10_programa.png</strong> (o el código como <strong>s10_programa.txt</strong>).</li>
-    <li>La <strong>ficha IoT</strong> del sistema: la encontraréis <strong>ya creada dentro de la tarea de Classroom</strong> (una copia para cada uno; no hay que adjuntar nada). En ella contaréis qué hace vuestro sistema, qué sensor mandaría datos a la nube, con qué protocolo (BLE, Zigbee, WiFi…) y para qué serviría.</li>
-    <li>Una <strong>demo</strong>: vídeo del sistema funcionando en el shield (con el papelito de <strong>iniciales y curso</strong> de los dos miembros) como <strong>s10_demo.mp4</strong>, más la captura del gemelo en TinkerCAD como <strong>s10_gemelo.png</strong>.</li>
-  </ul>
-</div>
-
 <div class="bloque bloque-actividad">
-  <p class="bloque-titulo">Tarea final · Sistema automatizado propio + ficha IoT + demo</p>
-  <p>Diseñad vuestro sistema, programadlo, probadlo en el shield y montad el gemelo en TinkerCAD.
-  Completad la ficha IoT y grabad la demo. Recordad usar los nombres de archivo indicados arriba (sin nombres personales) y, con todo dentro (programa + ficha rellena + demo + gemelo), pulsad <strong>«Entregar»</strong> en plazo.</p>
-</div>
-
-<div class="bloque bloque-nota">
-  <p class="bloque-titulo">Cómo se valora (buenas prácticas)</p>
-  <p>Además de que funcione, cuenta el <strong>orden del programa</strong> (variables con nombres claros,
-  funciones si las usáis), la <strong>claridad de la ficha y la demo</strong>, y el
-  <strong>trabajo en equipo</strong>: repartid los papeles y que se note que habéis colaborado los dos.</p>
+  <p class="bloque-titulo">Tarea de hoy · Del papel al shield</p>
+  <ol>
+    <li><strong>Analizad y diseñad:</strong> elegid la idea y escribid en una frase qué hará vuestro
+    sistema. Dibujad en papel el esquema <em>entrada → programa → salida</em> con los pines que vais a usar.</li>
+    <li><strong>Programad</strong> en STEAMakersBlocks el proyecto <strong>S10 sistema</strong>, con su
+    bucle y su condicional.</li>
+    <li><strong>Montad el gemelo</strong> en TinkerCAD (circuito <strong>S10 gemelo</strong>) y simuladlo.</li>
+    <li><strong>Probadlo en el shield:</strong> subid el programa y comprobad que la entrada hace
+    reaccionar a la salida.</li>
+  </ol>
+  <p>Antes de salir, añadid a la tarea <strong>«Sistema propio: programa + ficha IoT + demo»</strong> de
+  Classroom lo que ya tengáis (la captura <strong>s10_programa.png</strong> y la del gemelo,
+  <strong>s10_gemelo.png</strong>), <strong>sin pulsar «Entregar»</strong>: la tarea se cierra en la S11,
+  con la ficha IoT y la demo.</p>
 </div>
 
 <div class="bloque bloque-dua">
@@ -122,7 +120,6 @@
     con un mando. Preguntádmelo.</li>
     <li><strong>Servomotor</strong> en un puerto libre del shield (¿una barrera para el semáforo?):
     consultad cómo conectarlo.</li>
-    <li><strong>Versión en texto</strong>: escribid el programa (o parte) en C, como en la S8.</li>
   </ul>
 </div>
 </div>
@@ -130,7 +127,7 @@
 </article>
 </div></main><div class="nav-buttons">
 <a href="../html/s9-iot-con-microbit.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
-<a href="../html/chuleta-y-extensiones.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+<a href="../html/s11-sistema-propio-demo.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
 </div>
 <footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class=""> <p> <span class="license-label">Licencia: </span><span class="license">creative commons: attribution - share alike</span></p>
 </div>
