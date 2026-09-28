@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 0 590 330" width="590" height="330" role="img" aria-label="Esquema del LED RGB de cátodo común: pin 9 rojo, pin 11 verde y pin 10 azul, cada uno con su resistencia de 220 ohmios, y el cátodo común a GND">
+<rect x="-30" y="0" width="590" height="330" fill="#ffffff"/>
+<g style="font-family:'DejaVu Sans',Verdana,Arial,sans-serif" fill="#24262e">
+<text x="40" y="47" font-size="20" font-weight="bold" text-anchor="end">~9</text>
+<text x="40" y="137" font-size="20" font-weight="bold" text-anchor="end">~11</text>
+<text x="40" y="227" font-size="20" font-weight="bold" text-anchor="end">~10</text>
+<text x="160" y="20" font-size="17" text-anchor="middle">220 Ω</text>
+<text x="160" y="110" font-size="17" text-anchor="middle">220 Ω</text>
+<text x="160" y="200" font-size="17" text-anchor="middle">220 Ω</text>
+<text x="300" y="80" font-size="18" font-weight="bold" text-anchor="middle" fill="#c0392b">R</text>
+<text x="300" y="170" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e8449">G</text>
+<text x="300" y="260" font-size="18" font-weight="bold" text-anchor="middle" fill="#2471a3">B</text>
+<text x="420" y="318" font-size="18" font-weight="bold" text-anchor="middle">GND</text>
+</g>
+<g fill="none" stroke="#24262e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="56" cy="40" r="6" fill="#fff"/><circle cx="56" cy="130" r="6" fill="#fff"/><circle cx="56" cy="220" r="6" fill="#fff"/>
+<path d="M62 40 H112 l6 -12 l12 24 l12 -24 l12 24 l12 -24 l12 24 l12 -24 l6 12 H282"/>
+<path d="M62 130 H112 l6 -12 l12 24 l12 -24 l12 24 l12 -24 l12 24 l12 -24 l6 12 H282"/>
+<path d="M62 220 H112 l6 -12 l12 24 l12 -24 l12 24 l12 -24 l12 24 l12 -24 l6 12 H282"/>
+<polygon points="282,20 282,60 316,40" fill="#f5b7b1"/><path d="M316 20 V60"/>
+<polygon points="282,110 282,150 316,130" fill="#abebc6"/><path d="M316 110 V150"/>
+<polygon points="282,200 282,240 316,220" fill="#aed6f1"/><path d="M316 200 V240"/>
+<path d="M316 40 H420 V260"/><path d="M316 130 H420"/><path d="M316 220 H420"/>
+<path d="M392 260 H448"/><path d="M402 272 H438"/><path d="M412 284 H428"/>
+</g>
+<g fill="#24262e"><circle cx="420" cy="130" r="5"/><circle cx="420" cy="220" r="5"/></g>
+<g stroke="#24262e" stroke-width="2" fill="#24262e">
+<path d="M298 14 l14 -12"/><polygon points="315,0 306,3 311,8"/><path d="M308 18 l14 -12"/><polygon points="325,4 316,7 321,12"/>
+<path d="M298 104 l14 -12"/><polygon points="315,90 306,93 311,98"/><path d="M308 108 l14 -12"/><polygon points="325,94 316,97 321,102"/>
+<path d="M298 194 l14 -12"/><polygon points="315,180 306,183 311,188"/><path d="M308 198 l14 -12"/><polygon points="325,184 316,187 321,192"/>
+</g>
+</svg>

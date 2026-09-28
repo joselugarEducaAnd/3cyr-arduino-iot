@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" width="520" height="380" role="img" aria-label="Esquema: pila, LED y resistencia de 220 ohmios en serie">
+<rect x="0" y="0" width="520" height="380" fill="#ffffff"/>
+<g fill="none" stroke="#24262e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M100 172 V60 H232"/><path d="M272 60 H440 V140"/>
+<path d="M440 140 l12 6 l-24 12 l24 12 l-24 12 l24 12 l-24 12 l24 12 l-24 12 l12 6"/>
+<path d="M440 236 V330 H100 V240"/>
+<path d="M60 172 H140" stroke-width="3"/><path d="M78 190 H122" stroke-width="6"/><path d="M60 208 H140"/><path d="M78 226 H122" stroke-width="6"/>
+<path d="M100 226 V240"/>
+<path d="M232 60 H236"/><polygon points="236,38 236,82 272,60" fill="#ffffff"/><path d="M272 38 V82"/>
+</g>
+<g stroke="#24262e" stroke-width="2.2" fill="#24262e">
+<path d="M254 30 L272 12"/><polygon points="276,8 266,12 272,18"/>
+<path d="M266 38 L284 20"/><polygon points="288,16 278,20 284,26"/>
+</g>
+<g style="font-family:'DejaVu Sans',Verdana,Arial,sans-serif" fill="#24262e">
+<text x="150" y="170" font-size="26" font-weight="bold">+</text>
+<text x="418" y="200" text-anchor="end" font-size="22" font-weight="bold">220 Ω</text>
+</g>
+</svg>

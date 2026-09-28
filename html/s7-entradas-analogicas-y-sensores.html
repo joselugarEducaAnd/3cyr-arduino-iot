@@ -83,7 +83,7 @@
     <li>En el <strong>Bucle</strong>: lee la entrada <strong>A0</strong> (potenciómetro), pásala por
     <strong>mapear</strong> (de 0–1023 a 0–255) y escribe el resultado como PWM en el <strong>pin 9</strong>
     (canal rojo del RGB). El patrón de bloques es este:
-    <figure><img src="../content/resources/aba1.2.png" alt="Bloques: leer entrada analógica, mapear de 0-1023 a 0-255 y escribir el valor como PWM"><figcaption>En el shield: entrada A0, salida pin 9.</figcaption></figure></li>
+    <figure><img src="../content/resources/s7_lampara.png" alt="Bloques: valor_entrada toma Leer analógica Pin A0; intensidad_led toma mapear de 0-1023 a 0-255; Escribir analógica (PWM) Pin 9 con intensidad_led"><figcaption>En el shield: entrada A0, salida pin 9.</figcaption></figure></li>
     <li>Añade un bloque de <strong>Comunicaciones → Puerto serie → imprimir</strong> con el valor leído, y una
     espera pequeña (100 ms). Sube el programa.</li>
     <li>Gira la rueda del shield: el rojo del RGB sube y baja de brillo. Y si abres el

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 410" width="420" height="410" role="img" aria-label="Esquema del pulsador SW1 con resistencia pull-down: 5 voltios, pulsador, nodo conectado al pin 2 y resistencia de 10 kilohmios a GND">
+<rect x="0" y="0" width="420" height="410" fill="#ffffff"/>
+<g style="font-family:'DejaVu Sans',Verdana,Arial,sans-serif" fill="#24262e">
+<text x="250" y="34" font-size="20" font-weight="bold" text-anchor="middle">+5 V</text>
+<text x="74" y="174" font-size="20" font-weight="bold" text-anchor="middle">pin 2</text>
+<text x="300" y="118" font-size="18" text-anchor="start">SW1</text>
+<text x="280" y="283" font-size="18" text-anchor="start">10 kΩ</text>
+<text x="250" y="402" font-size="18" font-weight="bold" text-anchor="middle">GND</text>
+</g>
+<g fill="none" stroke="#24262e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="250" cy="52" r="6" fill="#fff"/>
+<path d="M250 58 V92"/><circle cx="250" cy="98" r="6" fill="#fff"/>
+<path d="M244 146 L226 102"/>
+<circle cx="250" cy="146" r="6" fill="#fff"/><path d="M250 152 V240"/>
+<path d="M250 190 H80"/><circle cx="74" cy="190" r="6" fill="#fff"/>
+<path d="M250 240 l12 6 l-24 12 l24 12 l-24 12 l24 12 l-24 12 l24 12 l-24 12 l12 6 V350"/>
+<path d="M222 350 H278"/><path d="M232 362 H268"/><path d="M242 374 H258"/>
+</g>
+<circle cx="250" cy="190" r="5" fill="#24262e"/>
+</svg>

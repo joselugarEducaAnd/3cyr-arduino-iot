@@ -77,9 +77,9 @@
   <ol>
     <li>En el <strong>Bucle</strong>, encaja un bloque <strong>si… si no…</strong></li>
     <li>Como condición, pon <strong>leer digital pin 2</strong> (el pulsador SW1).</li>
-    <li>Dentro del «si»: <strong>escribir digital pin 13 ON</strong> (LED azul). Dentro del «si no»:
-    <strong>escribir digital pin 13 OFF</strong>. El patrón de bloques es este:
-    <figure><img src="../content/resources/abd1.2.png" alt="Bloques: si la entrada digital está activada enciende el LED, si no lo apaga"><figcaption>En tu programa: entrada = pin 2 (SW1), salida = pin 13 (LED azul).</figcaption></figure></li>
+    <li>Dentro del «si»: <strong>escribir digital pin 13 On</strong> (LED azul). Dentro del «si no»:
+    <strong>escribir digital pin 13 Off</strong>. El patrón de bloques es este:
+    <figure><img src="../content/resources/s6_boton_luz.png" alt="Bloques: si Leer digital Pin 2, Escribir digital Pin 13 On; si no, Escribir digital Pin 13 Off"><figcaption>En tu programa: entrada = pin 2 (SW1), salida = pin 13 (LED azul).</figcaption></figure></li>
     <li>Sube el programa y prueba: <strong>mientras mantengas pulsado SW1, el LED azul luce</strong>;
     al soltar, se apaga.</li>
   </ol>
@@ -90,7 +90,7 @@
   <p>¿Por qué el pulsador «da» un 1 al pulsarlo y un 0 al soltarlo? Dentro del shield, cada pulsador está
   montado con una <strong>resistencia pull-down</strong>: al pulsar, llegan los 5 V al pin (HIGH); al soltar,
   la resistencia «tira» del pin hacia 0 V (LOW). Sin ella, el pin quedaría «al aire», leyendo valores al azar.</p>
-  <figure><img src="../content/resources/pull-down.png" alt="Esquema y montaje de un pulsador con resistencia pull-down de 10 kΩ conectado a Arduino"><figcaption>Esto es lo que el shield trae hecho por dentro para cada pulsador.</figcaption></figure>
+  <figure><img src="../content/resources/pull-down.svg" alt="Esquema del pulsador SW1 con resistencia pull-down: +5 V, pulsador, pin 2 y resistencia de 10 kΩ a GND"><figcaption>Esto es lo que el shield trae hecho por dentro para cada pulsador.</figcaption></figure>
 </div>
 
 <div class="bloque bloque-resuelto">

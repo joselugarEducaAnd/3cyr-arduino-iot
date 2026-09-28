@@ -76,7 +76,7 @@
   <p>Cablear cada circuito en clase lleva tiempo y da errores. Por eso montaremos sobre la Arduino un
   <strong>shield</strong>: una placa que encaja encima y que trae <strong>ya conectados</strong> un montón de
   componentes. Es como una protoboard con el circuito hecho por dentro de fábrica.</p>
-  <figure><img src="../content/resources/shield_clon.jpg" alt="Shield multifunción HY-M302 montado, con sus componentes integrados"></figure>
+  <figure><img src="../content/resources/shield_mapa.png" alt="Mapa del shield HY-M302 con cada componente numerado y su pin: LED azul 13, LED rojo 12, LED RGB 9, 11 y 10, zumbador 5, pulsadores SW1 2 y SW2 3, potenciómetro A0, sensor de luz A1, LM35 A2, DHT11 4, receptor de infrarrojos 6 y puertos libres 7, 8 y A3"></figure>
   <p>Este es su <strong>mapa</strong>. No hace falta memorizarlo (está también en la chuleta), pero fíjate:
   cada componente tiene su pin FIJO, y ese número es el que pondrás en tus bloques toda la unidad.</p>
   <table class="tabla-datos">
@@ -99,7 +99,7 @@
   <p>Programaremos con <a href="https://steamakersblocks.com/" target="_blank" rel="noopener">STEAMakersBlocks</a>,
   un entorno de bloques (como Scratch) para Arduino. Encajas bloques, no escribes código,
   así que no puedes cometer errores de escritura. Cada programa tiene dos partes fijas:</p>
-  <figure><img src="../content/resources/inicializar_y_bucle.png" alt="Bloques Inicializar y Bucle en STEAMakersBlocks"></figure>
+  <figure><img src="../content/resources/s3_inicializar_bucle.png" alt="Proyecto nuevo de tipo UNO en STEAMakersBlocks con los bloques Inicializar y Bucle vacíos"></figure>
   <table class="tabla-datos">
     <tr><th>Bloque</th><th>Cuándo se ejecuta</th></tr>
     <tr><td>Inicializar</td><td>Una sola vez, al arrancar la placa (preparar pines y variables).</td></tr>
@@ -111,12 +111,12 @@
   <p class="bloque-titulo">Práctica guiada · Tu primera luz real, paso a paso</p>
   <ol>
     <li>Entra en STEAMakersBlocks con tu usuario de clase y crea un <strong>proyecto nuevo</strong> de tipo <strong>UNO</strong> llamado exactamente <strong>S3 parpadeo</strong>.</li>
-    <li>En el bloque <strong>Bucle</strong>, encaja esta secuencia: <em>escribir digital pin 13 ON →
-    esperar 1000 ms → escribir digital pin 13 OFF → esperar 1000 ms</em>. Debe quedarte así:
+    <li>En el bloque <strong>Bucle</strong>, encaja esta secuencia: <em>escribir digital pin 13 On →
+    esperar 1000 ms → escribir digital pin 13 Off → esperar 1000 ms</em>. Debe quedarte así:
     <figure><img src="../content/resources/ab1.3.png" alt="Bloques del parpadeo: encender pin 13, esperar, apagar, esperar, dentro del Bucle"><figcaption>El pin 13 es el LED azul del shield.</figcaption></figure></li>
     <li>Pulsa la flechita junto al botón «Bloques» y elige <strong>«Ver código»</strong>: aparece el programa
     traducido al lenguaje de Arduino. Cópialo con el botón <strong>Copiar</strong>.
-    <figure><img src="../content/resources/ver_codigo_AB.png" alt="Menú Ver código en STEAMakersBlocks"></figure></li>
+    <figure><img src="../content/resources/s3_ver_codigo.png" alt="Menú de la flechita junto a «Bloques» desplegado en STEAMakersBlocks, con la opción «Ver código» señalada"></figure></li>
     <li>Abre <strong>Arduino IDE</strong> en el ordenador del aula, borra el contenido del sketch de ejemplo
     y <strong>pega</strong> tu código.
     <figure><img src="../content/resources/ArdIDE-IES.png" alt="Ventana principal de Arduino IDE"></figure></li>
