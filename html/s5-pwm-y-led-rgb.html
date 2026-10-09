@@ -72,6 +72,15 @@
   El LED RGB del shield está conectado a tres de ellos.</p>
 </div>
 
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Pruébalo tú: el PWM por dentro</p>
+  <p>Mueve el valor de 0 a 255 y mira a la vez la señal del pin y el brillo del LED.</p>
+<style>.cyr-pwmrgb{width:100%;max-width:100%;border:1px solid #e2d0c4;border-radius:6px;height:700px;display:block}</style>
+<script>(function(){function ajusta(){var fs=document.querySelectorAll("iframe.cyr-pwmrgb");for(var i=0;i<fs.length;i++){var f=fs[i];if(!f.getBoundingClientRect().width)continue;try{var d=f.contentDocument,a=d&&d.querySelector(".wg");if(!a)continue;var h=Math.ceil(a.getBoundingClientRect().height+24);if(h>200&&Math.abs(h-f.clientHeight)>4)f.style.height=h+"px";}catch(e){}}}document.addEventListener("click",function(){setTimeout(ajusta,120);setTimeout(ajusta,600);},true);window.addEventListener("load",function(){ajusta();setTimeout(ajusta,400);});window.addEventListener("resize",function(){setTimeout(ajusta,150);});setInterval(ajusta,1000);})();</script>
+<iframe class="cyr-pwmrgb" name="pwm" src="../content/resources/widgets/widget_pwm_rgb.html" title="Pruébalo tú: el PWM por dentro" width="100%" loading="lazy"></iframe>
+  <p>El pin nunca da «medio voltaje»: se enciende y se apaga muy deprisa. Lo que cambia es cuánto rato está encendido en cada ciclo.</p>
+</div>
+
 <div class="bloque bloque-teoria">
   <p class="bloque-titulo">El LED RGB del shield</p>
   <p>Un <strong>LED RGB</strong> es en realidad tres LEDs en uno: rojo, verde y azul. Combinando el
@@ -117,6 +126,15 @@
   <p>Programa el canal que quieras del RGB para que suba de brillo de 0 a 255 y vuelva a bajar a 0,
   en bucle (efecto «respiración»). Pista: dos bucles <em>contar con</em>, uno subiendo y otro bajando,
   con una espera pequeña (10 ms) dentro. Hazlo en un proyecto llamado <strong>B1 respiración</strong>, graba el resultado como <strong>b1_respiracion.mp4</strong> y añádelo a la tarea <strong>«Tareas de Arduino (S2–S7)»</strong>.</p>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Pruébalo tú: mezcla colores</p>
+  <p>Mueve los tres canales y busca el ámbar del semáforo antes de probarlo en el shield.</p>
+<style>.cyr-pwmrgb{width:100%;max-width:100%;border:1px solid #e2d0c4;border-radius:6px;height:700px;display:block}</style>
+<script>(function(){function ajusta(){var fs=document.querySelectorAll("iframe.cyr-pwmrgb");for(var i=0;i<fs.length;i++){var f=fs[i];if(!f.getBoundingClientRect().width)continue;try{var d=f.contentDocument,a=d&&d.querySelector(".wg");if(!a)continue;var h=Math.ceil(a.getBoundingClientRect().height+24);if(h>200&&Math.abs(h-f.clientHeight)>4)f.style.height=h+"px";}catch(e){}}}document.addEventListener("click",function(){setTimeout(ajusta,120);setTimeout(ajusta,600);},true);window.addEventListener("load",function(){ajusta();setTimeout(ajusta,400);});window.addEventListener("resize",function(){setTimeout(ajusta,150);});setInterval(ajusta,1000);})();</script>
+<iframe class="cyr-pwmrgb" name="rgb" src="../content/resources/widgets/widget_pwm_rgb.html" title="Pruébalo tú: mezcla colores" width="100%" loading="lazy"></iframe>
+  <p>Apunta los valores que te gusten: en el LED real puede que tengas que retocarlos un poco.</p>
 </div>
 
 <div class="bloque bloque-actividad">

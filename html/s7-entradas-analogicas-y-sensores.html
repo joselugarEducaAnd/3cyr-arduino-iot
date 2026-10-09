@@ -77,6 +77,15 @@
   de un LED de 0 a máximo.</p>
 </div>
 
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Pruébalo tú: el bloque mapear</p>
+  <p>Gira la rueda virtual y mira qué número entra en <code>mapear</code> y cuál sale.</p>
+<style>.cyr-mapear{width:100%;max-width:100%;border:1px solid #e2d0c4;border-radius:6px;height:560px;display:block}</style>
+<script>(function(){function ajusta(){var fs=document.querySelectorAll("iframe.cyr-mapear");for(var i=0;i<fs.length;i++){var f=fs[i];if(!f.getBoundingClientRect().width)continue;try{var d=f.contentDocument,a=d&&d.querySelector(".wg");if(!a)continue;var h=Math.ceil(a.getBoundingClientRect().height+24);if(h>200&&Math.abs(h-f.clientHeight)>4)f.style.height=h+"px";}catch(e){}}}document.addEventListener("click",function(){setTimeout(ajusta,120);setTimeout(ajusta,600);},true);window.addEventListener("load",function(){ajusta();setTimeout(ajusta,400);});window.addEventListener("resize",function(){setTimeout(ajusta,150);});setInterval(ajusta,1000);})();</script>
+<iframe class="cyr-mapear" name="brillo" src="../content/resources/widgets/widget_mapear.html" title="Pruébalo tú: el bloque mapear" width="100%" loading="lazy"></iframe>
+  <p><code>mapear</code> hace una regla de tres: el recorrido de 0 a 1023 se estira o se encoge hasta ocupar el nuevo rango.</p>
+</div>
+
 <div class="bloque bloque-resuelto">
   <p class="bloque-titulo">Práctica guiada · Lámpara regulable (y un espía: la consola serie)</p>
   <ol>
@@ -123,6 +132,15 @@
     <tr><td>Humedad del suelo</td><td>Riego automático que solo riega cuando hace falta.</td></tr>
     <tr><td>Nivel / distancia</td><td>Contenedores de basura que avisan cuando están llenos.</td></tr>
   </table>
+</div>
+
+<div class="bloque bloque-actividad">
+  <p class="bloque-titulo">Pruébalo tú: ¿dónde pongo el umbral?</p>
+  <p>Estas son veinte lecturas de la LDR, diez con luz y diez tapándola. Mueve el umbral hasta que la farola acierte siempre.</p>
+<style>.cyr-umbral{width:100%;max-width:100%;border:1px solid #e2d0c4;border-radius:6px;height:480px;display:block}</style>
+<script>(function(){function ajusta(){var fs=document.querySelectorAll("iframe.cyr-umbral");for(var i=0;i<fs.length;i++){var f=fs[i];if(!f.getBoundingClientRect().width)continue;try{var d=f.contentDocument,a=d&&d.querySelector(".wg");if(!a)continue;var h=Math.ceil(a.getBoundingClientRect().height+24);if(h>200&&Math.abs(h-f.clientHeight)>4)f.style.height=h+"px";}catch(e){}}}document.addEventListener("click",function(){setTimeout(ajusta,120);setTimeout(ajusta,600);},true);window.addEventListener("load",function(){ajusta();setTimeout(ajusta,400);});window.addEventListener("resize",function(){setTimeout(ajusta,150);});setInterval(ajusta,1000);})();</script>
+<iframe class="cyr-umbral" name="farola" src="../content/resources/widgets/widget_umbral.html" title="Pruébalo tú: ¿dónde pongo el umbral?" width="100%" loading="lazy"></iframe>
+  <p>Después haz lo mismo con tu shield: mira los números en el monitor serie y elige el umbral entre los dos grupos.</p>
 </div>
 
 <div class="bloque bloque-actividad">

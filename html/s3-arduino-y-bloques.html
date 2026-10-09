@@ -60,7 +60,47 @@
   <p><strong>Arduino</strong> es una plataforma libre formada por una placa con un microcontrolador
   (el hardware) y un entorno para programarla (el software). Con ella podemos leer sensores y activar
   actuadores según un programa que escribamos. Podemos compararla con una persona:</p>
-  <figure><img src="../content/resources/analogia_arduino_humano.png" alt="Analogía entre el cuerpo humano y Arduino: sentidos-sensores, cerebro-microcontrolador, músculos-actuadores"><figcaption>Sensores = sentidos · microcontrolador = cerebro · actuadores = músculos.</figcaption></figure>
+  <figure><svg viewBox="0 0 720 300" role="img" aria-label="Analogía entre una persona y Arduino: los sentidos equivalen a los sensores (entrada), el cerebro al microcontrolador (proceso) y los músculos a los actuadores (salida)" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+<rect width="720" height="300" fill="#fdfaf8"/>
+<defs><marker id="anA" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L11,5 L0,10 z" fill="#8a3f24"/></marker></defs>
+<text x="180" y="28" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#8a3f24">ENTRADA</text>
+<text x="400" y="28" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#8a3f24">PROCESO</text>
+<text x="620" y="28" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#8a3f24">SALIDA</text>
+<text x="56" y="112" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#555">Persona</text>
+<text x="56" y="242" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#555">Arduino</text>
+<rect x="88" y="70" width="184" height="84" rx="10" fill="#fff" stroke="#8a3f24" stroke-width="2.5"/>
+<text x="180" y="120" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#8a3f24">sentidos</text>
+<text x="180" y="140" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#555">ojos, oídos, tacto</text>
+<rect x="308" y="70" width="184" height="84" rx="10" fill="#fff" stroke="#8a3f24" stroke-width="2.5"/>
+<text x="400" y="120" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#8a3f24">cerebro</text>
+<text x="400" y="140" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#555">decide qué hacer</text>
+<rect x="528" y="70" width="184" height="84" rx="10" fill="#fff" stroke="#8a3f24" stroke-width="2.5"/>
+<text x="620" y="120" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#8a3f24">músculos</text>
+<text x="620" y="140" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#555">se mueven</text>
+<line x1="274" y1="112" x2="304" y2="112" stroke="#8a3f24" stroke-width="3" marker-end="url(#anA)"/>
+<line x1="494" y1="112" x2="524" y2="112" stroke="#8a3f24" stroke-width="3" marker-end="url(#anA)"/>
+<rect x="88" y="200" width="184" height="84" rx="10" fill="#fff" stroke="#8a3f24" stroke-width="2.5"/>
+<text x="180" y="250" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#8a3f24">sensores</text>
+<text x="180" y="270" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#555">pulsador, luz, temperatura</text>
+<rect x="308" y="200" width="184" height="84" rx="10" fill="#fff" stroke="#8a3f24" stroke-width="2.5"/>
+<text x="400" y="250" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#8a3f24">microcontrolador</text>
+<text x="400" y="270" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#555">ejecuta el programa</text>
+<rect x="528" y="200" width="184" height="84" rx="10" fill="#fff" stroke="#8a3f24" stroke-width="2.5"/>
+<text x="620" y="250" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#8a3f24">actuadores</text>
+<text x="620" y="270" text-anchor="middle" font-family="Verdana, 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#555">LED, zumbador, servo</text>
+<line x1="274" y1="242" x2="304" y2="242" stroke="#8a3f24" stroke-width="3" marker-end="url(#anA)"/>
+<line x1="494" y1="242" x2="524" y2="242" stroke="#8a3f24" stroke-width="3" marker-end="url(#anA)"/>
+<g fill="none" stroke="#8a3f24" stroke-width="2">
+<path d="M162 90 q18 -14 36 0 q-18 14 -36 0 z"/><circle cx="180" cy="90" r="5" fill="#8a3f24"/>
+<path d="M384 96 c-8 0 -10 -10 -4 -14 c-2 -8 8 -12 12 -8 c4 -6 14 -4 14 2 c8 -2 12 8 6 12 c4 6 -2 12 -8 10 c-4 4 -14 4 -20 -2 z"/>
+<line x1="604" y1="88" x2="636" y2="88" stroke-width="3"/><rect x="598" y="80" width="8" height="16" rx="2" fill="#8a3f24"/><rect x="634" y="80" width="8" height="16" rx="2" fill="#8a3f24"/>
+</g>
+<g fill="none" stroke="#8a3f24" stroke-width="2">
+<rect x="166" y="212" width="28" height="18" rx="3"/><circle cx="180" cy="221" r="5" fill="#8a3f24"/>
+<rect x="384" y="210" width="32" height="22" rx="2"/><line x1="388" y1="206" x2="388" y2="210"/><line x1="388" y1="232" x2="388" y2="236"/><line x1="396" y1="206" x2="396" y2="210"/><line x1="396" y1="232" x2="396" y2="236"/><line x1="404" y1="206" x2="404" y2="210"/><line x1="404" y1="232" x2="404" y2="236"/><line x1="412" y1="206" x2="412" y2="210"/><line x1="412" y1="232" x2="412" y2="236"/>
+<path d="M608 232 v-12 a12 12 0 0 1 24 0 v12 z"/><line x1="614" y1="232" x2="614" y2="238"/><line x1="626" y1="232" x2="626" y2="238"/>
+</g>
+</svg><figcaption>Sensores = sentidos · microcontrolador = cerebro · actuadores = músculos.</figcaption></figure>
   <p>Usaremos la placa más popular, la <strong>Arduino UNO</strong>. Su componente principal es el
   microcontrolador <strong>ATmega328P</strong>, con 32 KB de memoria flash (para el programa) y
   2 KB de memoria SRAM (para los datos). Parece poco, ¡pero sobra para nuestros proyectos!</p>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PWM y LED RGB</title>
+<style>
+/* Widget manipulable · 3.º CYR · SdA 05 (S5) · PWM y mezcla de colores
+   Autocontenido: sin CDN, sin dependencias, sin almacenamiento.
+   Modo por el name del iframe (o #modo): pwm · rgb */
+:root{--chrome:#8a4b2a;--chrome-osc:#66371e;--chrome-tinte:#f3ebe5;--chrome-linea:#e2d0c4;--txt:#222;--gris:#6b6f7a;
+--fuente:Verdana,'DejaVu Sans',Arial,sans-serif;--mono:'DejaVu Sans Mono','Liberation Mono',Consolas,monospace}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:var(--fuente);color:var(--txt);background:#fff;font-size:13px;line-height:1.45;padding:10px 12px 12px;overflow-x:hidden}
+.pest{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 8px}
+.pest button{font-family:var(--fuente);font-size:12px;cursor:pointer;border:1px solid var(--chrome);background:#fff;color:var(--chrome);border-radius:5px;padding:4px 10px}
+.pest button[aria-pressed=true]{background:var(--chrome);color:#fff}
+.caja{border:1px solid var(--chrome-linea);border-radius:6px;background:var(--chrome-tinte);padding:8px 10px;margin-bottom:8px}
+label{font-size:12px;font-weight:700;display:flex;justify-content:space-between}
+label span{font-family:var(--mono);font-weight:400}
+input[type=range]{width:100%}
+.r label{color:#b3261e} .r input{accent-color:#d22}
+.g label{color:#1e7b35} .g input{accent-color:#2a2}
+.b label{color:#1f4fa8} .b input{accent-color:#24d}
+.p label{color:var(--chrome-osc)} .p input{accent-color:var(--chrome)}
+.rej{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:14px;align-items:start}
+.bl{font-family:var(--mono);font-size:12px;background:#2e8bc0;color:#fff;border-radius:6px;padding:6px 10px;line-height:1.7}
+.bl b{background:#fff;color:#333;border-radius:9px;padding:0 6px;font-weight:400}
+.lect{margin:8px 0 0;padding:6px 10px;border-radius:6px;font-size:12.5px;border:1px solid #2a7d4f;background:#eef8f1;color:#1d5636;min-height:40px}
+svg{width:100%;height:auto;display:block}
+.hex{font-family:var(--mono);font-size:12px;color:var(--gris);text-align:center;margin-top:4px}
+button:focus-visible,input:focus-visible{outline:3px solid var(--chrome-osc);outline-offset:2px}
+[hidden]{display:none!important}
+@media (max-width:560px){.rej{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="wg">
+  <div class="pest" role="group" aria-label="Modo">
+    <button type="button" id="tP">PWM: un canal</button>
+    <button type="button" id="tR">Mezclar colores (RGB)</button>
+  </div>
+  <section id="sP">
+    <div class="caja p"><label for="v">Valor PWM (pin 9) <span id="vv"></span></label><input id="v" type="range" min="0" max="255" value="64"></div>
+    <div class="rej">
+      <div><svg id="onda" viewBox="0 0 420 150" role="img" aria-label="Señal PWM: encendido y apagado muchas veces por segundo"></svg></div>
+      <div><svg id="led1" viewBox="0 0 220 150" role="img" aria-label="Brillo del LED"></svg></div>
+    </div>
+    <div class="bl" id="bl1"></div>
+  </section>
+  <section id="sR">
+    <div class="caja r"><label for="R">Rojo · pin 9 <span id="vR"></span></label><input id="R" type="range" min="0" max="255" value="255"></div>
+    <div class="caja g"><label for="G">Verde · pin 11 <span id="vG"></span></label><input id="G" type="range" min="0" max="255" value="0"></div>
+    <div class="caja b"><label for="B">Azul · pin 10 <span id="vB"></span></label><input id="B" type="range" min="0" max="255" value="0"></div>
+    <div class="rej">
+      <div class="bl" id="bl3"></div>
+      <div><svg id="led3" viewBox="0 0 220 150" role="img" aria-label="Color que se ve en el LED RGB"></svg><div class="hex" id="hex"></div></div>
+    </div>
+  </section>
+  <div class="lect" id="lect"></div>
+</main>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var modo='pwm', cs=[window.name,(location.hash||'').slice(1)];
+  for(var i=0;i<cs.length;i++){var c=(cs[i]||'').replace(/^modo=/,''); if(c==='pwm'||c==='rgb'){modo=c;break;}}
+  function led(svgId,r,g,b){
+    var m=Math.max(r,g,b)/255;
+    $(svgId).innerHTML='<rect width="220" height="150" rx="8" fill="#1c1c22"/>'+
+      '<circle cx="110" cy="70" r="'+(34+36*m)+'" fill="rgba('+r+','+g+','+b+','+(0.35*m)+')"/>'+
+      '<circle cx="110" cy="70" r="30" fill="'+(m===0?'#3a3a42':'rgb('+r+','+g+','+b+')')+'" stroke="#666" stroke-width="2"/>'+
+      '<text x="110" y="138" text-anchor="middle" font-family="Verdana,DejaVu Sans,Arial,sans-serif" font-size="12" fill="#ddd">'+(m===0?'apagado':'lo que ve tu ojo')+'</text>';
+  }
+  function onda(v){
+    var d=v/255, per=76, x0=20, y1=30, y0=110, s='';
+    s+='<rect width="420" height="150" fill="#fdfbf9"/><line x1="16" y1="110" x2="410" y2="110" stroke="#ccc"/>';
+    s+='<text x="10" y="34" font-family="Verdana,DejaVu Sans,Arial,sans-serif" font-size="10" fill="#777" text-anchor="start">5V</text><text x="10" y="124" font-family="Verdana,DejaVu Sans,Arial,sans-serif" font-size="10" fill="#777">0V</text>';
+    var p='M'+x0+' '+(d>0?y1:y0);
+    for(var k=0;k<4.5;k++){var a=x0+k*per, on=a+per*d, e=a+per;
+      if(d>=1){p+=' H'+e;continue;} if(d<=0){p+=' H'+e;continue;}
+      p+=' V'+y1+' H'+on+' V'+y0+' H'+e;}
+    s+='<path d="'+p+'" fill="none" stroke="#a24a2f" stroke-width="3"/>';
+    s+='<text x="210" y="142" text-anchor="middle" font-family="Verdana,DejaVu Sans,Arial,sans-serif" font-size="12" fill="#333">encendido el '+Math.round(d*100)+' % del tiempo</text>';
+    $('onda').innerHTML=s;
+  }
+  function pinta(){
+    $('tP').setAttribute('aria-pressed',modo==='pwm'); $('tR').setAttribute('aria-pressed',modo==='rgb');
+    $('sP').hidden=modo!=='pwm'; $('sR').hidden=modo!=='rgb';
+    if(modo==='pwm'){
+      var v=+$('v').value; $('vv').textContent=v; onda(v); led('led1',Math.round(v),0,0);
+      $('bl1').innerHTML='Escribir analógica (PWM) Pin <b>9</b> · Valor <b>'+v+'</b>';
+      $('lect').innerHTML= v===0?'Con 0 el pin no se enciende nunca: LED apagado.': v===255?'Con 255 el pin está encendido todo el tiempo: brillo máximo.':
+        'El pin se enciende y se apaga cientos de veces por segundo. Con '+v+' está encendido el '+Math.round(v/255*100)+' % de cada ciclo, y tu ojo lo ve como un brillo intermedio.';
+    } else {
+      var r=+$('R').value,g=+$('G').value,b=+$('B').value; $('vR').textContent=r;$('vG').textContent=g;$('vB').textContent=b;
+      led('led3',r,g,b); $('hex').textContent='R '+r+' · G '+g+' · B '+b;
+      $('bl3').innerHTML='Escribir analógica (PWM) Pin <b>9</b> · Valor <b>'+r+'</b><br>Escribir analógica (PWM) Pin <b>11</b> · Valor <b>'+g+'</b><br>Escribir analógica (PWM) Pin <b>10</b> · Valor <b>'+b+'</b>';
+      var t;
+      if(r+g+b===0) t='Los tres canales a 0: LED apagado.';
+      else if(r===255&&g===255&&b===255) t='Los tres a tope se ve casi blanco.';
+      else if(r>0&&g>0&&b===0) t='Rojo y verde juntos dan amarillos y naranjas: cuanto menos verde, más anaranjado. Por ahí está el ámbar del semáforo.';
+      else if(r>0&&b>0&&g===0) t='Rojo y azul juntos dan morados y rosas.';
+      else if(g>0&&b>0&&r===0) t='Verde y azul juntos dan tonos turquesa.';
+      else t='Cada canal es un LED distinto con su propio brillo PWM; tu ojo los ve mezclados en un solo color.';
+      $('lect').innerHTML=t+' <span style="color:#6b6f7a">(En el LED real los colores no salen idénticos a la pantalla: usa esto para orientarte y ajusta en el shield.)</span>';
+    }
+  }
+  $('tP').onclick=function(){modo='pwm';pinta()}; $('tR').onclick=function(){modo='rgb';pinta()};
+  ['v','R','G','B'].forEach(function(i){$(i).addEventListener('input',pinta)});
+  pinta();
+})();
+</script>
+</body>
+</html>
